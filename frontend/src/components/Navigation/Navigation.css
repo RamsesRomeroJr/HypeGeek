@@ -1,3 +1,9 @@
 .profile-dropdown {
   position: absolute;
 }
+.NavBar{
+  /* display: flex; */
+  background-color: #FCFAF0;
+  height: 75px;
+  width: 100%;
+}
