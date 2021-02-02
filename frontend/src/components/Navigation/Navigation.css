@@ -21,3 +21,9 @@
   align-self: flex-end;
   /* margin-bottom: 10px; */
 }
+
+.logo{
+  height: 100px;
+  justify-self: center;
+  align-self: flex-start;
+}

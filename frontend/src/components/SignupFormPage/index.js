@@ -1,8 +1,20 @@
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Redirect } from "react-router-dom";
+import styled from "styled-components";
 import * as sessionActions from "../../store/session";
 import './SignupForm.css';
+
+const Input = styled.input`
+  margin-bottom:10px;
+  margin-top:10px;
+  padding: 4px 0 4px 4px;
+  border:solid 1px lightgrey;
+  border-radius:5px;
+  justify-self: center;
+  background-color:#FCFAF0;
+  color:grey;
+`;
 
 function SignupFormPage() {
   const dispatch = useDispatch();
@@ -28,51 +40,46 @@ function SignupFormPage() {
   };
 
   return (
-    <>
-      <h1>Sign Up</h1>
-      <form onSubmit={handleSubmit}>
+    <form onSubmit={handleSubmit} className="form">
+        <div className='formContainer'>
+      <h1 style={{color: 'grey'}}>Sign Up</h1>
         <ul>
           {errors.map((error, idx) => <li key={idx}>{error}</li>)}
         </ul>
-        <label>
-          Email
-          <input
+          <Input
             type="text"
             value={email}
+            placeholder="Email"
             onChange={(e) => setEmail(e.target.value)}
             required
           />
-        </label>
-        <label>
-          Username
-          <input
+          <Input
             type="text"
             value={username}
+            placeholder="Username"
             onChange={(e) => setUsername(e.target.value)}
             required
           />
-        </label>
-        <label>
-          Password
-          <input
+
+
+          <Input
             type="password"
             value={password}
+            placeholder="Password"
             onChange={(e) => setPassword(e.target.value)}
             required
           />
-        </label>
-        <label>
-          Confirm Password
-          <input
+          <Input
             type="password"
             value={confirmPassword}
+            placeholder="Confirm Password"
             onChange={(e) => setConfirmPassword(e.target.value)}
             required
           />
-        </label>
+
         <button type="submit">Sign Up</button>
+        </div>
       </form>
-    </>
   );
 }
 

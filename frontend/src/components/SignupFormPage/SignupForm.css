@@ -1,0 +1,16 @@
+
+
+.formContainer{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items:center;
+    margin-top:50px;
+    height:350px;
+    width:300px;
+    background-color: white;
+    border: 1px solid lightgrey;
+    border-radius:2px;
+    margin-left: 115px;
+    margin-top: 100px;
+}
