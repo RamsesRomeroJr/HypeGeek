@@ -15,7 +15,7 @@ function App() {
   }, [dispatch]);
 
   return (
-    <div style={{background:"#FCFAF0", height:"740px"}}>
+    <div style={{background:"#FCFAF0"}}>
       <Navigation isLoaded={isLoaded} />
       {isLoaded && (
         <Switch>
