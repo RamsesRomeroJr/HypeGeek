@@ -8,13 +8,32 @@ const { User, StoreData, FavShoe } = require('../../db/models')
 const router = express.Router();
 
 router.get('/home', asyncHandler(async(req,res) =>{
-
-    sneaks.getMostPopular((err, products)=>{
-
+    await sneaks.getMostPopular((err, products)=>{
         res.json({
             products
         })
     })
 }))
+
+
+router.get('/search/:sneaker', asyncHandler(async(req,res)=>{
+    let sneakerName = req.params.sneaker
+
+    await sneaks.getProducts(`${sneakerName}`, (err, products)=>{
+        if(products.length){
+            res.json({
+                products
+            })
+        }
+    })
+}))
+
+
+
+
+
+
+
+
 
 module.exports = router;
