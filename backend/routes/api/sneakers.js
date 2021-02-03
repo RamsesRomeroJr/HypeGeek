@@ -9,7 +9,7 @@ const router = express.Router();
 
 router.get('/home', asyncHandler(async(req,res) =>{
     await sneaks.getMostPopular((err, products)=>{
-        res.json({
+        return res.json({
             products
         })
     })
@@ -21,7 +21,7 @@ router.get('/search/:sneaker', asyncHandler(async(req,res)=>{
 
     await sneaks.getProducts(`${sneakerName}`, (err, products)=>{
         if(products.length){
-            res.json({
+            return res.json({
                 products
             })
         }
@@ -33,7 +33,7 @@ router.get('/info/:styleID', asyncHandler(async(req,res)=>{
 
     await sneaks.getProductPrices(`${styleId}`, (err, products)=>{
         // here figure out how to save info into StoreData
-        res.json({
+        return res.json({
             products
         })
     })
