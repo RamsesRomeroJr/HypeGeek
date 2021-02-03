@@ -28,10 +28,16 @@ router.get('/search/:sneaker', asyncHandler(async(req,res)=>{
     })
 }))
 
+router.get('/info/:styleID', asyncHandler(async(req,res)=>{
+    let styleId = req.params.styleID
 
-
-
-
+    await sneaks.getProductPrices(`${styleId}`, (err, products)=>{
+        // here figure out how to save info into StoreData
+        res.json({
+            products
+        })
+    })
+}))
 
 
 
