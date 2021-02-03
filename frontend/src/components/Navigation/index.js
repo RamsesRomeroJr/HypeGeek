@@ -5,6 +5,20 @@ import ProfileButton from './ProfileButton';
 import LoginFormModal from '../LoginFormModal';
 import './Navigation.css';
 import logo from "./HypeGeek-Logo.jpg"
+import styled from 'styled-components'
+
+const LoginButton = styled.button`
+  width:75px;
+  margin-bottom:4px;
+  margin-top:4px;
+  border:solid 1px lightgrey;
+  background-color:#FCFAF0;
+  color:grey;
+  &:hover{
+    background-color:green;
+    color:#FCFAF0;
+  }
+`;
 
 function Navigation({ isLoaded }){
   const sessionUser = useSelector(state => state.session.user);
