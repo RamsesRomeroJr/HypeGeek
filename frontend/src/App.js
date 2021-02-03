@@ -14,19 +14,19 @@ function App() {
   }, [dispatch]);
 
   return (
-    <>
+    <div style={{background:"#FCFAF0", height:"740px"}}>
       <Navigation isLoaded={isLoaded} />
       {isLoaded && (
         <Switch>
           {/* <Route path="/login" >
             <LoginFormPage />
           </Route> */}
-          <Route path="/signup">
+          <Route path="/">
             <SignupFormPage />
           </Route>
         </Switch>
       )}
-    </>
+    </div>
   );
 }
 
