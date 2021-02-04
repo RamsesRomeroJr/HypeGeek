@@ -2,10 +2,17 @@ import React from "react";
 import { NavLink } from "react-router-dom";
 import styled from "styled-components";
 
-function Pricing ({}){
+function Pricing ({sneakerInfo}){
+    let lowestPrices = sneakerInfo.lowestResellPrice
 
     return(
-        <div>$100</div>
+        <div>
+            {Object.keys(lowestPrices).map((keyName, i) => (
+                <div>
+                    <h3> ${lowestPrices[keyName]} from {keyName} </h3>
+                </div>
+            ))}
+        </div>
     )
 }
 

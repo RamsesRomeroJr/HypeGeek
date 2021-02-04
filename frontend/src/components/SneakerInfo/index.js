@@ -9,14 +9,16 @@ import Pricing from './pricing.js'
 const SneakerInfoContainer = styled.div`
     box-sizing:border-box;
     display: grid;
-    grid-template-columns: repeat(auto-fill,140px);
+    grid-template-columns: repeat(2,140px);
     justify-content: center;
     grid-auto-rows: auto;
-    grid-gap: 0px;
+    grid-gap: 10px;
+    width: 85%;
     margin: 0 auto;
-    width: 94%;
-    padding-top: 15px;
-    padding-bottom: 50px;
+    /* padding-top: 15px;
+    padding-bottom: 50px; */
+    border-radius:10px;
+    background-color: white;
 `
 
 function SneakerInfo(){
@@ -28,13 +30,18 @@ function SneakerInfo(){
         dispatch(getSneakerInfo(styleId))
     },[dispatch])
 
-    const sneakerInfo = useSelector((state) => state.sneakerInfo)
+    const sneakerInfo = useSelector((state) => state.sneaker.sneakerInfo)
 
     return (
-        <SneakerInfoContainer>
-            <Sneaker />
-            <Pricing />
-        </SneakerInfoContainer>
+        <div>
+            {!sneakerInfo && <h4>Loading...</h4>}
+            {sneakerInfo && (
+            <SneakerInfoContainer>
+                <Sneaker sneakerInfo={sneakerInfo}/>
+                <Pricing sneakerInfo={sneakerInfo}/>
+            </SneakerInfoContainer>
+            )}
+        </div>
     )
 }
 

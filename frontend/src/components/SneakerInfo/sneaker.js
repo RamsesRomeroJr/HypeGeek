@@ -1,13 +1,36 @@
 import React from "react";
-import { NavLink } from "react-router-dom";
 import styled from "styled-components";
 
-function Sneaker({}){
+const SneakerContainer = styled.div`
+    width: 100%;
+`
+
+const SneakerName = styled.h3`
+    color: black;
+    text-decoration:none;
+`
+
+const SneakerImages = styled.img`
+    /* flex-shrink: 3; */
+    width: 100%;
+    margin: 0 auto;
+    left:10000px;
+
+`
+
+function Sneaker({sneakerInfo}){
+
+    let sneakerName = sneakerInfo.shoeName;
 
     return(
-        <div>
-            img
-        </div>
+        <SneakerContainer>
+            <SneakerName>
+                {sneakerName}
+            </SneakerName>
+            <SneakerImages
+                src={sneakerInfo.thumbnail}
+            />
+        </SneakerContainer>
     )
 }
 
