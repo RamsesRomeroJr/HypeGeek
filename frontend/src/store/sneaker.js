@@ -1,4 +1,3 @@
-import styled from 'styled-components';
 import { fetch } from './csrf.js';
 
 const  SET_SNEAKER = 'sneaker/setSneaker';
