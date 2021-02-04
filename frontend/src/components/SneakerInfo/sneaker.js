@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import ImageSlider from './Slider/ImageSlider'
 
 const SneakerContainer = styled.div`
     width: 100%;
@@ -15,21 +16,21 @@ const SneakerImages = styled.img`
     width: 100%;
     margin: 0 auto;
     left:10000px;
-
 `
 
 function Sneaker({sneakerInfo}){
 
-    let sneakerName = sneakerInfo.shoeName;
-
+    const sneakerName = sneakerInfo.shoeName;
+    const images = sneakerInfo.imageLinks
     return(
         <SneakerContainer>
             <SneakerName>
                 {sneakerName}
             </SneakerName>
-            <SneakerImages
+            {/* <SneakerImages
                 src={sneakerInfo.thumbnail}
-            />
+            /> */}
+            <ImageSlider images={images} />
         </SneakerContainer>
     )
 }

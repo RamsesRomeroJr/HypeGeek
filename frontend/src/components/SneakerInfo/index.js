@@ -12,13 +12,14 @@ const SneakerInfoContainer = styled.div`
     grid-template-columns: repeat(2,140px);
     justify-content: center;
     grid-auto-rows: auto;
-    grid-gap: 10px;
+    grid-gap: 250px;
     width: 85%;
     margin: 0 auto;
     /* padding-top: 15px;
     padding-bottom: 50px; */
     border-radius:10px;
     background-color: white;
+    overflow:hidden;
 `
 
 function SneakerInfo(){
