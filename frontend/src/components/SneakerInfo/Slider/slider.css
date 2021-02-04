@@ -9,14 +9,14 @@
     user-select: none;
 }
 .left-arrow{
-    /* position:absolute; */
-    /* top:50%; */
-    /* left: 32px; */
-    /* font-size: 50px; */
-    /* color: black;
+    position:absolute;
+    top:50%;
+    left: 32px;
+    font-size: 50px;
+    color: black;
     z-index:10;
     cursor: pointer;
-    user-select: none; */
+    user-select: none;
 }
 
 .left-arrow:hover{
