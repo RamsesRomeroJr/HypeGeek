@@ -9,9 +9,9 @@ const setSneaker = (sneaker) => ({
 });
 
 export const getSneakerInfo = (styleId) => async(dispatch) => {
-    const res = await fetch(`/api/info/${styled}`)
+    const res = await fetch(`/api/sneaker/info/${styleId}`)
 
-    dispatch(setSneaker(res.formData.products));
+    dispatch(setSneaker(res.data.products));
     return res;
 }
 

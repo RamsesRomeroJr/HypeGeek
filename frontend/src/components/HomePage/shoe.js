@@ -46,7 +46,7 @@ function Shoe({sneaker}){
 
     return(
         <ShoeContainer>
-            <NavLink style={{textDecoration: 'none'}} to='/'>
+            <NavLink style={{textDecoration: 'none'}} to={`/sneaker/${sneaker.styleID}`}>
             <ShoeName> {sneaker.shoeName} </ShoeName>
             <ShoePrice>{`From $${minValue} ${key}`}</ShoePrice>
             <ShoeImage src={sneaker.thumbnail} />
