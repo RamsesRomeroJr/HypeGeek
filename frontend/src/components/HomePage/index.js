@@ -6,7 +6,6 @@ import Shoe from './shoe.js'
 
 const ShoesContainer = styled.div`
     box-sizing:border-box;
-    /* background-color: white; */
     display: grid;
     grid-template-columns: repeat(auto-fill,240px);
     justify-content: center;
@@ -30,7 +29,7 @@ function HomePage() {
     },[dispatch])
 
     const allShoes = useSelector((state) => state.home.products)
-    console.log(allShoes)
+
     return (
         <div>
             <ContainerTitle>Trending</ContainerTitle>
