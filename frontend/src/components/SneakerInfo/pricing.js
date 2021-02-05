@@ -24,6 +24,24 @@ function Pricing ({sneakerInfo}){
     let lowestPrices = sneakerInfo.lowestResellPrice
     const resellPrices = sneakerInfo.resellPrices
 
+    const priceArrayCreator = (priceObj) =>{
+        let key = 4;
+        let objLength= Object.keys(priceObj).length
+        let prices = [];
+
+        for(let i=4; i<15; i+=0.5){
+            prices.push(priceObj[i])
+        }
+        return prices;
+    }
+
+
+    let stockXPrices = priceArrayCreator(resellPrices.stockX)
+    let goatPrices = priceArrayCreator(resellPrices.goat)
+    let flightClubPrices = priceArrayCreator(resellPrices.flightClub)
+    let stadiumGoodsPrices = priceArrayCreator(resellPrices.stadiumGoods)
+
+    priceArrayCreator(resellPrices.stockX)
     const classes = useStyles()
 
     return(
@@ -66,19 +84,27 @@ function Pricing ({sneakerInfo}){
                 <TableBody>
                     <TableRow>
                         <TableCell align="left">StockX</TableCell>
-
+                        {stockXPrices.map((price, i)=>{
+                            return <TableCell key={i}>${price}</TableCell>
+                        })}
                     </TableRow>
                     <TableRow>
                         <TableCell align="left">Goat</TableCell>
-
+                        {goatPrices.map((price, i)=>{
+                            return <TableCell key={i}>${price}</TableCell>
+                        })}
                     </TableRow>
                     <TableRow>
                         <TableCell align="left">flightClub</TableCell>
-
+                        {flightClubPrices.map((price, i)=>{
+                            return <TableCell key={i}>${price}</TableCell>
+                        })}
                     </TableRow>
                     <TableRow>
                         <TableCell align="left">stadiumGood</TableCell>
-
+                        {stadiumGoodsPrices.map((price, i)=>{
+                            return <TableCell key={i}>${price}</TableCell>
+                        })}
                     </TableRow>
                 </TableBody>
             </Table>
