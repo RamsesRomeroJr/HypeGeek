@@ -1,5 +1,5 @@
 import React from "react";
-import { NavLink } from "react-router-dom";
+import { Link } from "react-router-dom";
 import styled from "styled-components";
 import { makeStyles } from '@material-ui/core/styles';
 import Table from '@material-ui/core/Table';
@@ -91,7 +91,11 @@ function Pricing ({sneakerInfo}){
                 </TableHead>
                 <TableBody>
                     <TableRow>
-                        <TableCell align="left"><Logo src={stockXLogo}/></TableCell>
+                        <TableCell align="left">
+                            <a href={sneakerInfo.resellLinks.stockX} target="_blank">
+                            <Logo src={stockXLogo}/>
+                            </a>
+                        </TableCell>
                         {stockXPrices.map((price, i)=>{
                             if(!price){
                                 return <TableCell key={i}>$-</TableCell>
@@ -100,7 +104,11 @@ function Pricing ({sneakerInfo}){
                         })}
                     </TableRow>
                     <TableRow>
-                        <TableCell align="left"><Logo src={goatLogo}/></TableCell>
+                        <TableCell align="left">
+                            <a href={sneakerInfo.resellLinks.goat} target="_blank">
+                                <Logo src={goatLogo}/>
+                            </a>
+                        </TableCell>
                         {goatPrices.map((price, i)=>{
                             if(!price){
                                 return <TableCell key={i}>$-</TableCell>
@@ -109,7 +117,11 @@ function Pricing ({sneakerInfo}){
                         })}
                     </TableRow>
                     <TableRow>
-                        <TableCell align="left"><FlightLogo src={flightClubLogo}/></TableCell>
+                        <TableCell align="left">
+                            <a href={sneakerInfo.resellLinks.flightClub} target="_blank">
+                                <FlightLogo src={flightClubLogo}/>
+                            </a>
+                        </TableCell>
                         {flightClubPrices.map((price, i)=>{
                             if(!price){
                                 return <TableCell key={i}>$-</TableCell>
@@ -118,7 +130,11 @@ function Pricing ({sneakerInfo}){
                         })}
                     </TableRow>
                     <TableRow>
-                        <TableCell align="left"><Logo src={stadiumGoodsLogo}/></TableCell>
+                        <TableCell align="left">
+                            <a href={sneakerInfo.resellLinks.stadiumGoods} target="_blank">
+                                <Logo src={stadiumGoodsLogo}/>
+                            </a>
+                        </TableCell>
                         {stadiumGoodsPrices.map((price, i)=>{
                             if(!price){
                                 return <TableCell key={i}>$-</TableCell>
