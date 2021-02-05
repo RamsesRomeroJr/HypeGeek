@@ -93,24 +93,36 @@ function Pricing ({sneakerInfo}){
                     <TableRow>
                         <TableCell align="left"><Logo src={stockXLogo}/></TableCell>
                         {stockXPrices.map((price, i)=>{
+                            if(!price){
+                                return <TableCell key={i}>$-</TableCell>
+                            }
                             return <TableCell key={i}>${price}</TableCell>
                         })}
                     </TableRow>
                     <TableRow>
                         <TableCell align="left"><Logo src={goatLogo}/></TableCell>
                         {goatPrices.map((price, i)=>{
+                            if(!price){
+                                return <TableCell key={i}>$-</TableCell>
+                            }
                             return <TableCell key={i}>${price}</TableCell>
                         })}
                     </TableRow>
                     <TableRow>
                         <TableCell align="left"><FlightLogo src={flightClubLogo}/></TableCell>
                         {flightClubPrices.map((price, i)=>{
+                            if(!price){
+                                return <TableCell key={i}>$-</TableCell>
+                            }
                             return <TableCell key={i}>${price}</TableCell>
                         })}
                     </TableRow>
                     <TableRow>
                         <TableCell align="left"><Logo src={stadiumGoodsLogo}/></TableCell>
                         {stadiumGoodsPrices.map((price, i)=>{
+                            if(!price){
+                                return <TableCell key={i}>$-</TableCell>
+                            }
                             return <TableCell key={i}>${price}</TableCell>
                         })}
                     </TableRow>
