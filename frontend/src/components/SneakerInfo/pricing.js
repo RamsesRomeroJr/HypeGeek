@@ -100,7 +100,7 @@ function Pricing ({sneakerInfo}){
                             if(!price){
                                 return <TableCell key={i}>$-</TableCell>
                             }
-                            return <TableCell key={i}>${price}</TableCell>
+                            return <TableCell key={i} style={{color:'green'}}>${price}</TableCell>
                         })}
                     </TableRow>
                     <TableRow>
@@ -126,7 +126,7 @@ function Pricing ({sneakerInfo}){
                             if(!price){
                                 return <TableCell key={i}>$-</TableCell>
                             }
-                            return <TableCell key={i}>${price}</TableCell>
+                            return <TableCell key={i} style={{color:'green'}}>${price}</TableCell>
                         })}
                     </TableRow>
                     <TableRow>
