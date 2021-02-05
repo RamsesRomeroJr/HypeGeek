@@ -9,6 +9,10 @@ import TableContainer from '@material-ui/core/TableContainer';
 import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
+import stockXLogo from './stockx-vector-logo.png'
+import goatLogo from "./goat-sneaker-logo.jpg"
+import flightClubLogo from "./flightClub-Logo.jpg"
+import stadiumGoodsLogo from "./Stadium-goods.png"
 
 const useStyles = makeStyles({
     table: {
@@ -16,9 +20,13 @@ const useStyles = makeStyles({
     },
   });
 
-//   function createData(size, size3, size35 ) {
-//     return { name, calories, fat, carbs, protein };
-//   }
+const Logo = styled.img`
+    height:25px;
+`
+
+const FlightLogo = styled.img`
+    height:15px;
+`
 
 function Pricing ({sneakerInfo}){
     let lowestPrices = sneakerInfo.lowestResellPrice
@@ -83,25 +91,25 @@ function Pricing ({sneakerInfo}){
                 </TableHead>
                 <TableBody>
                     <TableRow>
-                        <TableCell align="left">StockX</TableCell>
+                        <TableCell align="left"><Logo src={stockXLogo}/></TableCell>
                         {stockXPrices.map((price, i)=>{
                             return <TableCell key={i}>${price}</TableCell>
                         })}
                     </TableRow>
                     <TableRow>
-                        <TableCell align="left">Goat</TableCell>
+                        <TableCell align="left"><Logo src={goatLogo}/></TableCell>
                         {goatPrices.map((price, i)=>{
                             return <TableCell key={i}>${price}</TableCell>
                         })}
                     </TableRow>
                     <TableRow>
-                        <TableCell align="left">flightClub</TableCell>
+                        <TableCell align="left"><FlightLogo src={flightClubLogo}/></TableCell>
                         {flightClubPrices.map((price, i)=>{
                             return <TableCell key={i}>${price}</TableCell>
                         })}
                     </TableRow>
                     <TableRow>
-                        <TableCell align="left">stadiumGood</TableCell>
+                        <TableCell align="left"><Logo src={stadiumGoodsLogo}/></TableCell>
                         {stadiumGoodsPrices.map((price, i)=>{
                             return <TableCell key={i}>${price}</TableCell>
                         })}
