@@ -3,22 +3,25 @@
 } */
 
 .NavBar{
-  display: flex;
-  flex-direction: column;
-  background-color: #FCFAF0;
-  height: 75px;
+  border-bottom: 1px solid green;
+  height: 103px;
   width: 100%;
-  justify-content: center;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  /* font-size: 1.2rem; */
+  /* position: sticky; */
+  top: 0;
+  z-index: 999;
 }
 
 .home-Link{
-  justify-self: center;
   align-self: flex-start;
-  width: 45px;
+  justify-content: flex-start;
 }
 
 .login-button{
-  align-self: flex-end;
+  /* align-self: flex-end; */
 
   /* margin-bottom: 10px; */
 }
@@ -27,4 +30,10 @@
   height: 100px;
   justify-self: center;
   align-self: flex-start;
+}
+
+.searchBar{
+  align-self: center;
+  justify-self: center;
+  /* margin-top: 100px; */
 }

@@ -6,9 +6,14 @@ import {useHistory} from "react-router-dom";
 
 const Input = styled.input`
     height:35px;
-    width: 500px;
+    width: 300px;
     font-size:30px;
     text-align:center;
+`
+
+const SearchBox = styled.div`
+    width:310px;
+    height: 40px;
 `
 
 const Search = ()=> {
@@ -24,7 +29,7 @@ const Search = ()=> {
 
 
     return (
-        <di>
+        <SearchBox>
             <form onSubmit={onSearch}>
                 <Input
                     type="text"
@@ -38,7 +43,7 @@ const Search = ()=> {
                 />
 
             </form>
-        </di>
+        </SearchBox>
     )
 }
 

@@ -44,7 +44,9 @@ function Navigation({ isLoaded }){
           <img src={logo} className="logo"/>
         </NavLink>
       </div>
-      <Search/>
+      <div className="searchBar">
+        <Search/>
+      </div>
       <div className="login-button">
         {isLoaded && sessionLinks}
       </div>
