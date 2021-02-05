@@ -9,6 +9,12 @@ const Input = styled.input`
     width: 300px;
     font-size:30px;
     text-align:center;
+    border-radius:6px;
+    border:1px solid green;
+
+    &::-webkit-input-placeholder{
+        color:grey;
+    }
 `
 
 const SearchBox = styled.div`
