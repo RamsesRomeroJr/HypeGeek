@@ -6,6 +6,7 @@ import LoginFormModal from '../LoginFormModal';
 import './Navigation.css';
 import logo from "./HypeGeek-Logo.jpg"
 import styled from 'styled-components'
+import Search from '../SearchBar/index'
 
 const LoginButton = styled.button`
   width:75px;
@@ -43,6 +44,7 @@ function Navigation({ isLoaded }){
           <img src={logo} className="logo"/>
         </NavLink>
       </div>
+      <Search/>
       <div className="login-button">
         {isLoaded && sessionLinks}
       </div>
