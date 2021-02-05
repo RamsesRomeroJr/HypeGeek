@@ -21,11 +21,15 @@ const ShoeImage = styled.img`
 const ShoeName = styled.h3`
     color: black;
     text-decoration:none;
+    font-family: 'Staatliches', cursive;
+    font-weight:3;
 `
 
 const ShoePrice = styled.h3`
     color: grey;
     text-decoration:none;
+    font-family: 'Staatliches', cursive;
+    font-weight:1;
 `
 
 
