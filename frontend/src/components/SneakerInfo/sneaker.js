@@ -9,6 +9,9 @@ const SneakerContainer = styled.div`
 const SneakerName = styled.h3`
     color: black;
     text-decoration:none;
+    font-family: 'Staatliches', cursive;
+    font-weight:600;
+    font-size: 30px;
 `
 
 const SneakerImages = styled.img`

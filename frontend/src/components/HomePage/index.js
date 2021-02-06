@@ -18,6 +18,8 @@ const ShoesContainer = styled.div`
 `
 
 const ContainerTitle = styled.h2`
+    font-family: 'Staatliches', cursive;
+    font-size:40px;
 
 `
 
@@ -32,7 +34,9 @@ function HomePage() {
 
     return (
         <div>
-            <ContainerTitle>Trending</ContainerTitle>
+            <div style={{display:"flex", justifyContent:"center"}}>
+                <ContainerTitle>Trending</ContainerTitle>
+            </div>
             <ShoesContainer>
                 {!allShoes && <h4>Loading...</h4>}
                 {allShoes && allShoes.map(shoe => {

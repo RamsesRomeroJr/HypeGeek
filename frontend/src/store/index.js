@@ -3,11 +3,13 @@ import thunk from 'redux-thunk';
 import session from './session'
 import home from './home'
 import sneaker from './sneaker'
+import searchResults from './searchResults'
 
 const rootReducer = combineReducers({
   session,
   home,
-  sneaker
+  sneaker,
+  searchResults
 });
 
 let enhancer;

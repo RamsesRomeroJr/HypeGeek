@@ -21,17 +21,23 @@ const ShoeImage = styled.img`
 const ShoeName = styled.h3`
     color: black;
     text-decoration:none;
+    font-family: 'Staatliches', cursive;
+    font-weight:3;
 `
 
 const ShoePrice = styled.h3`
     color: grey;
     text-decoration:none;
+    font-family: 'Staatliches', cursive;
+    font-weight:1;
 `
 
 
 function Shoe({sneaker}){
     const lowestPrices = sneaker.lowestResellPrice
-
+    if(!lowestPrices){
+        return <div> sorry no shoes found</div>
+    }
     let keys = Object.keys(lowestPrices);
     let key = keys[0]
     let minValue =lowestPrices[key]
