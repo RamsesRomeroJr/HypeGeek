@@ -30,7 +30,9 @@ const Search = ()=> {
     const onSearch = (e) => {
         e.preventDefault();
 
-        return dispatch(getSearchResults(search))
+        dispatch(getSearchResults(search))
+        e.target.reset()
+        return history.push("/search-results")
     }
 
 
@@ -43,8 +45,6 @@ const Search = ()=> {
                     placeholder='Search Sneaker...'
                     onChange={(e) => {
                         setSearch(e.target.value)
-                        onSearch(e)
-                        // history.push("/search-results")
                     }}
                 />
 

@@ -7,6 +7,7 @@ import SneakerInfo from "./components/SneakerInfo"
 // import LoginFormPage from "./components/LoginFormPage";
 import * as sessionActions from "./store/session";
 import Navigation from "./components/Navigation";
+import SearchResults from "./components/SearchResults"
 
 function App() {
   const dispatch = useDispatch();
@@ -31,6 +32,9 @@ function App() {
           </Route>
           <Route path="/sneaker/:styleId">
             <SneakerInfo />
+          </Route>
+          <Route path="/search-results">
+            <SearchResults />
           </Route>
         </Switch>
       )}

@@ -35,7 +35,9 @@ const ShoePrice = styled.h3`
 
 function Shoe({sneaker}){
     const lowestPrices = sneaker.lowestResellPrice
-
+    if(!lowestPrices){
+        return <div> sorry no shoes found</div>
+    }
     let keys = Object.keys(lowestPrices);
     let key = keys[0]
     let minValue =lowestPrices[key]
