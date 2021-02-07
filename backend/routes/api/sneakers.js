@@ -39,6 +39,26 @@ router.get('/info/:styleID', asyncHandler(async(req,res)=>{
     })
 }))
 
+router.post('/favorite/:styleID', asyncHandler(async(req,res)=>{
+    const styleId = req.params.styleID
+    const {
+            userId,
+            shoeName,
+            thumbNail,
+            retailPrice
+           }
+    await FavShoe.create({userId, shoeName, styleId, thumbNail, retailPrice })
+    res.json({message: 'all done'})
+}))
+
+
+router.post('/unfavorite/:styleID', asyncHandler(async(req,res)=>{
+    const styleID = req.params.styleID
+    await FavShoe.delete(
+        {where: {userId: req.body.userId, styleId: styleID}}
+    )
+    res.json({message: 'deleted'})
+}))
 
 
 
