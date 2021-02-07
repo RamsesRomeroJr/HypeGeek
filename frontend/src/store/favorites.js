@@ -9,7 +9,18 @@ const setFavorites = (favorites) => ({
 
 export const createFavorite = ({userId, shoeName, thumbNail, retailPrice, styleId}) =>
     async(dispatch) => {
-        const res = await fetch(`/api/sneaker/favorite/${styleId}`)
+        const res = await fetch(`/api/sneaker/favorite/${styleId}`, {
+            method: 'POST',
+            headers: {
+                'Content-Type' : 'application/json'
+            },
+            body: JSON.stringify({
+                userId,
+                shoeName,
+                thumbNail,
+                retailPrice
+            })
+        })
 
         dispatch(setFavorites(res.data.userFavorites))
         return res
