@@ -2,6 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import ImageSlider from './Slider/ImageSlider'
 import FavoriteComp from '../FavoriteComp/index.js'
+import {userFav} from '../../store/favorites'
 
 
 const SneakerContainer = styled.div`
