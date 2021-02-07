@@ -22,12 +22,12 @@ function FavoriteComp({sneakerInfo}){
     async function getFavorites(){
         let res = await fetch(`/api/sneaker/userFav/${userId}`)
         let favoritesArr = res.data.userFavorites
-        console.log(favoritesArr)
         for(let i=0; i<favoritesArr.length; i++){
+
             if(favoritesArr[i]['styleId'] === styleID){
                 setFavorited(true)
             }
-            console.log(favoritesArr[i]['styleId'])
+
         }
         return
     }
@@ -39,13 +39,18 @@ function FavoriteComp({sneakerInfo}){
     function favoriting (){
         dispatch(createFavorite({shoeName,thumbnail,retailPrice,styleID,userId}))
     }
+    function unfavoriting (){
+        dispatch(unfavorite({styleID, userId}))
+    }
 
     return(
         <div>
             {!isFavorited && <FiStar
                 onClick={favoriting}
             />}
-            {isFavorited && <FaStar />}
+            {isFavorited && <FaStar
+                onClick={unfavoriting}
+            />}
         </div>
     )
 }

@@ -26,13 +26,12 @@ export const createFavorite = ({userId, shoeName, thumbnail, retailPrice, styleI
         return res
     }
 
-export const unfavorite = ({styleId, userId}) => async(dispatch) => {
-    const res = await fetch(`/api/sneaker/unfavorite/${styleId}`, {
+export const unfavorite = ({styleID, userId}) => async(dispatch) => {
+    const res = await fetch(`/api/sneaker/unfavorite/${styleID}`, {
         method: 'POST',
         header: {"Content-Type": "application/json"},
         body: JSON.stringify({
-            userId,
-            styleId
+            userId
         })
     })
 
@@ -48,7 +47,7 @@ export const userFav = ({userId}) => async(dispatch) => {
     return res
 }
 
-    const initialState = {favorites: null};
+    const initialState = {favorites: []};
 
     function reducer(state=initialState, action){
         switch(action.type){
