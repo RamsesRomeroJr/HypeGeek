@@ -25,11 +25,11 @@ function FavoriteComp({sneakerInfo}){
         for(let i=0; i<favoritesArr.length; i++){
 
             if(favoritesArr[i]['styleId'] === styleID){
-                setFavorited(true)
+               return setFavorited(true)
             }
 
         }
-        return
+        return setFavorited(false)
     }
 
     useEffect(()=>{
@@ -38,9 +38,11 @@ function FavoriteComp({sneakerInfo}){
 
     function favoriting (){
         dispatch(createFavorite({shoeName,thumbnail,retailPrice,styleID,userId}))
+        getFavorites()
     }
     function unfavoriting (){
         dispatch(unfavorite({styleID, userId}))
+        getFavorites()
     }
 
     return(
