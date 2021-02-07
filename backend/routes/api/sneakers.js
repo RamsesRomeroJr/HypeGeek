@@ -42,14 +42,14 @@ router.get('/info/:styleID', asyncHandler(async(req,res)=>{
 router.post('/favorite/:styleID', asyncHandler(async(req,res)=>{
     const styleId = req.params.styleID
 
-    const userFavorites = await FavShoe.findAll({where: {userId: req.params.userId}})
+    const userFavorites = await FavShoe.findAll({where: {userId: req.body.userId}})
 
     const{
             userId,
             shoeName,
             thumbNail,
             retailPrice
-           } = req.params
+           } = req.body
     await FavShoe.create({userId, shoeName, styleId, thumbNail, retailPrice })
     res.json({userFavorites})
 }))
@@ -58,7 +58,7 @@ router.post('/favorite/:styleID', asyncHandler(async(req,res)=>{
 router.post('/unfavorite/:styleID', asyncHandler(async(req,res)=>{
     const styleID = req.params.styleID
 
-    const userFavorites = await FavShoe.findAll({where: {userId: req.params.userId}})
+    const userFavorites = await FavShoe.findAll({where: {userId: req.body.userId}})
 
     await FavShoe.delete(
         {where: {userId: req.body.userId, styleId: styleID}}
@@ -66,7 +66,7 @@ router.post('/unfavorite/:styleID', asyncHandler(async(req,res)=>{
     res.json({userFavorites})
 }))
 
-router.get('/userFav', asyncHandler(async(req, res) => {
+router.get('/userFav/:userId', asyncHandler(async(req, res) => {
     const userFavorites = await FavShoe.findAll({where: {userId: req.params.userId}})
 
      res.json({userFavorites});

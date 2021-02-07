@@ -2,6 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import ImageSlider from './Slider/ImageSlider'
 
+
 const SneakerContainer = styled.div`
     width: 100%;
 `
@@ -30,9 +31,7 @@ function Sneaker({sneakerInfo}){
             <SneakerName>
                 {sneakerName}
             </SneakerName>
-            {/* <SneakerImages
-                src={sneakerInfo.thumbnail}
-            /> */}
+
             <ImageSlider images={images} />
         </SneakerContainer>
     )

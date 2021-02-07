@@ -7,9 +7,9 @@ const setFavorites = (favorites) => ({
     favorites
 })
 
-export const createFavorite = ({userId, shoeName, thumbNail, retailPrice, styleId}) =>
+export const createFavorite = ({userId, shoeName, thumbnail, retailPrice, styleID}) =>
     async(dispatch) => {
-        const res = await fetch(`/api/sneaker/favorite/${styleId}`, {
+        const res = await fetch(`/api/sneaker/favorite/${styleID}`, {
             method: 'POST',
             headers: {
                 'Content-Type' : 'application/json'
@@ -17,7 +17,7 @@ export const createFavorite = ({userId, shoeName, thumbNail, retailPrice, styleI
             body: JSON.stringify({
                 userId,
                 shoeName,
-                thumbNail,
+                thumbnail,
                 retailPrice
             })
         })
@@ -41,7 +41,7 @@ export const unfavorite = ({styleId, userId}) => async(dispatch) => {
 }
 
 export const userFav = ({userId}) => async(dispatch) => {
-    const res = await fetch(`api/sneaker/userfav`)
+    const res = await fetch(`api/sneaker/userfav/${userId}`)
 
     dispatch(setFavorites(res.data.userFavorites))
 
