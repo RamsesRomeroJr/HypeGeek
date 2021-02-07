@@ -40,6 +40,14 @@ export const unfavorite = ({styleId, userId}) => async(dispatch) => {
     return res
 }
 
+export const userFav = ({userId}) => async(dispatch) => {
+    const res = await fetch(`api/sneaker/userfav`)
+
+    dispatch(setFavorites(res.data.userFavorites))
+
+    return res
+}
+
     const initialState = {favorites: null};
 
     function reducer(state=initialState, action){
