@@ -60,6 +60,11 @@ router.post('/unfavorite/:styleID', asyncHandler(async(req,res)=>{
     res.json({message: 'deleted'})
 }))
 
+router.get('/userFav', asyncHandler(async(req, res) => {
+    const userFavorites = await FavShoe.findAll({where: {userId: req.params.userId}})
+
+     res.json({userFavorites});
+}))
 
 
 module.exports = router;
