@@ -47,10 +47,10 @@ router.post('/favorite/:styleID', asyncHandler(async(req,res)=>{
     const{
             userId,
             shoeName,
-            thumbNail,
+            thumbnail,
             retailPrice
            } = req.body
-    await FavShoe.create({userId, shoeName, styleId, thumbNail, retailPrice })
+    await FavShoe.create({userId, shoeName, styleId, thumbNail:thumbnail, retailPrice })
     res.json({userFavorites})
 }))
 

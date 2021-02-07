@@ -1,7 +1,7 @@
-import React, {useState} from 'react'
+import React, {useState, useEffect} from 'react'
 import styled from 'styled-components'
 import {useSelector, useDispatch} from 'react-redux'
-import {createFavorite, unfavorite} from '../../store/favorites'
+import {createFavorite, unfavorite, userFav} from '../../store/favorites'
 import {FaStar} from 'react-icons/fa'
 import {FiStar} from 'react-icons/fi'
 
@@ -9,9 +9,10 @@ import {FiStar} from 'react-icons/fi'
 function FavoriteComp({isFavorited, sneakerInfo}){
     const dispatch = useDispatch()
     const userId = useSelector((state)=>state.session.user.id)
+    const thumbnail = sneakerInfo.thumbnail
+
     const {
         shoeName,
-        thumbnail,
         retailPrice,
         styleID
     } = sneakerInfo

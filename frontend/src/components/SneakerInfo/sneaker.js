@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import ImageSlider from './Slider/ImageSlider'
+import FavoriteComp from '../FavoriteComp/index.js'
 
 
 const SneakerContainer = styled.div`
@@ -31,7 +32,7 @@ function Sneaker({sneakerInfo}){
             <SneakerName>
                 {sneakerName}
             </SneakerName>
-
+            <FavoriteComp sneakerInfo={sneakerInfo}/>
             <ImageSlider images={images} />
         </SneakerContainer>
     )
