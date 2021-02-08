@@ -5,6 +5,8 @@ import styled from "styled-components";
 import * as sessionActions from "../../store/session";
 import './SignupForm.css';
 import floatingJordan from './floating-Off-White-noBACK.png'
+import { Modal } from '../../context/Modal';
+import LoginForm from '../LoginFormModal/LoginForm';
 
 const Input = styled.input`
   margin-bottom:20px;
@@ -51,6 +53,20 @@ const SignUpButton = styled.button`
   }
 `;
 
+const LoginButton = styled.button`
+  width:75px;
+  margin-bottom:4px;
+  margin-top:4px;
+  border:solid 1px lightgrey;
+  background-color:#FCFAF0;
+  color:grey;
+  &:hover{
+    background-color:green;
+    color:#FCFAF0;
+  }
+`;
+
+
 const Page = styled.div`
   display:flex;
   align-items:center;
@@ -64,6 +80,7 @@ function SignupFormPage() {
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
   const [errors, setErrors] = useState([]);
+  const [showModal, setShowModal] = useState(false);
 
   if (sessionUser) return <Redirect to="/home" />;
 
@@ -119,6 +136,12 @@ function SignupFormPage() {
           />
 
         <SignUpButton type="submit">Sign Up</SignUpButton>
+        <LoginButton type="button" onClick={() => setShowModal(true)}>Login</LoginButton>
+        {showModal && (
+        <Modal onClose={() => setShowModal(false)}>
+          <LoginForm />
+        </Modal>
+      )}
         </div>
       </form>
       <ImageContainer>
