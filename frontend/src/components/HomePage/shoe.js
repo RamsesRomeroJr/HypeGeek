@@ -10,6 +10,8 @@ const ShoeContainer = styled.div`
     border-radius:10px;
 
     background-color: white;
+    border:solid 0.5px lightgrey;
+    box-shadow: 0 3px 10px 0px rgba(0,0,0,0.6);
 `
 
 const ShoeImage = styled.img`
