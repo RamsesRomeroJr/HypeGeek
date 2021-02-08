@@ -4,12 +4,14 @@ import session from './session'
 import home from './home'
 import sneaker from './sneaker'
 import searchResults from './searchResults'
+import favorites from './favorites'
 
 const rootReducer = combineReducers({
   session,
   home,
   sneaker,
-  searchResults
+  searchResults,
+  favorites
 });
 
 let enhancer;

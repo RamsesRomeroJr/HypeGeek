@@ -1,9 +1,8 @@
 'use strict';
 module.exports = (sequelize, DataTypes) => {
   const StoreData = sequelize.define('StoreData', {
-    styleId: DataTypes.INTEGER,
+    styleId: DataTypes.STRING,
     shoeName: DataTypes.STRING,
-    date: DataTypes.DATE,
     lowestPrice: DataTypes.INTEGER,
     stockxLow: DataTypes.INTEGER,
     goatLow: DataTypes.INTEGER,

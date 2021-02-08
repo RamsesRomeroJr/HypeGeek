@@ -18,7 +18,7 @@ module.exports = {
         allowNull: false,
       },
       styleId: {
-        type: Sequelize.INTEGER,
+        type: Sequelize.STRING,
         allowNull: false,
       },
       thumbNail: {

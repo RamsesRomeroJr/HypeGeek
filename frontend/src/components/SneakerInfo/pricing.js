@@ -33,8 +33,8 @@ function Pricing ({sneakerInfo}){
     const resellPrices = sneakerInfo.resellPrices
 
     const priceArrayCreator = (priceObj) =>{
-        let key = 4;
-        let objLength= Object.keys(priceObj).length
+        // let key = 4;
+        // let objLength= Object.keys(priceObj).length
         let prices = [];
 
         for(let i=4; i<15; i+=0.5){

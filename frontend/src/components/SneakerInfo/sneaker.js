@@ -1,6 +1,9 @@
 import React from "react";
 import styled from "styled-components";
 import ImageSlider from './Slider/ImageSlider'
+import FavoriteComp from '../FavoriteComp/index.js'
+import {userFav} from '../../store/favorites'
+
 
 const SneakerContainer = styled.div`
     width: 100%;
@@ -30,9 +33,7 @@ function Sneaker({sneakerInfo}){
             <SneakerName>
                 {sneakerName}
             </SneakerName>
-            {/* <SneakerImages
-                src={sneakerInfo.thumbnail}
-            /> */}
+            <FavoriteComp sneakerInfo={sneakerInfo}/>
             <ImageSlider images={images} />
         </SneakerContainer>
     )
