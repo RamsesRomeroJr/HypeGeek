@@ -1,6 +1,7 @@
 #!/usr/bin/env node
 
-const { port } = require('../config');
+let { port } = require('../config');
+port = Number(port) + 1
 
 const app = require('../app');
 const db = require('../db/models');
