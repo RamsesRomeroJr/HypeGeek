@@ -13,6 +13,7 @@ const ProButton = styled.button`
   color:grey;
   border:solid 0.5px lightgrey;
   box-shadow: 0 1px 2px 0px rgba(0,0,0,0.6);
+  outline:none;
   &:hover{
     color:green;
     border:solid 0.5px lightgrey;
