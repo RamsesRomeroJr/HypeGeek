@@ -10,13 +10,17 @@ const Input = styled.input`
     font-size:30px;
     text-align:center;
     border-radius:6px;
-    border:1px solid green;
-    box-shadow: 0 2px 5px 0px rgba(0,0,0,0.6);
+    border:0.5px solid grey;
+    outline:none;
 
     &::-webkit-input-placeholder{
         color:grey;
         font-family: 'Staatliches', cursive;
         font-weight:lighter;
+    }
+
+    &:hover{
+        box-shadow: 0 2px 5px 0px rgba(0,0,0,0.6);
     }
 `
 

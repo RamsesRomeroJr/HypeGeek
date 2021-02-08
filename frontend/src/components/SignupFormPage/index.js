@@ -17,6 +17,7 @@ const Input = styled.input`
   justify-self: center;
   background-color:#FCFAF0;
   color:grey;
+  outline:none;
 `;
 
 const Image = styled.img`
