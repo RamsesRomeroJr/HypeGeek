@@ -1,0 +1,12 @@
+.star{
+    cursor: pointer;
+    font-size: 25px;
+}
+
+.unfavorite:hover{
+    color: green;
+}
+
+.favorite{
+    color: green;
+}

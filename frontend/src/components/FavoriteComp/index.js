@@ -5,7 +5,7 @@ import {createFavorite, unfavorite, userFav} from '../../store/favorites'
 import {FaStar} from 'react-icons/fa'
 import {FiStar} from 'react-icons/fi'
 import {fetch} from '../../store/csrf.js'
-
+import './FavoriteComp.css'
 
 function FavoriteComp({sneakerInfo}){
     const dispatch = useDispatch()
@@ -49,9 +49,11 @@ function FavoriteComp({sneakerInfo}){
         <div>
             {!isFavorited && <FiStar
                 onClick={favoriting}
+                className='star unfavorite'
             />}
             {isFavorited && <FaStar
                 onClick={unfavoriting}
+                className='star favorite'
             />}
         </div>
     )
