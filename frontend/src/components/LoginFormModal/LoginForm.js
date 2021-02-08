@@ -4,6 +4,20 @@ import { useDispatch } from "react-redux";
 import "./LoginForm.css";
 import styled from 'styled-components'
 
+const LoginButton = styled.button`
+  width:75px;
+  margin-bottom:4px;
+  margin-top:4px;
+  background-color:#FCFAF0;
+  border:solid 0.5px lightgrey;
+  color:grey;
+  &:hover{
+    background-color:green;
+    color:#FCFAF0;
+    border:solid 0.5px lightgrey;
+  }
+`;
+
 const Input = styled.input`
   margin-top:10px;
   margin-bottom:10px;
@@ -59,7 +73,7 @@ function LoginForm() {
             required
           />
         </label>
-        <button type="submit">Log In</button>
+        <LoginButton type="submit">Log In</LoginButton>
       </form>
     </div>
   );
