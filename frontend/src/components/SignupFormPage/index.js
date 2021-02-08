@@ -4,6 +4,7 @@ import { Redirect } from "react-router-dom";
 import styled from "styled-components";
 import * as sessionActions from "../../store/session";
 import './SignupForm.css';
+import floatingJordan from './floating-Off-White-noBACK.png'
 
 const Input = styled.input`
   margin-bottom:20px;
@@ -15,6 +16,10 @@ const Input = styled.input`
   background-color:#FCFAF0;
   color:grey;
 `;
+
+const Image = styled.img`
+  width:900px;
+`
 
 const SignUpButton = styled.button`
   width:75px;
@@ -30,6 +35,11 @@ const SignUpButton = styled.button`
   }
 `;
 
+const Page = styled.div`
+  display:flex;
+  align-items:center;
+  justify-content:space-around;
+`
 function SignupFormPage() {
   const dispatch = useDispatch();
   const sessionUser = useSelector((state) => state.session.user);
@@ -54,6 +64,7 @@ function SignupFormPage() {
   };
 
   return (
+    <Page>
     <form onSubmit={handleSubmit} className="form">
       <div className='formContainer'>
         <ul>
@@ -94,6 +105,8 @@ function SignupFormPage() {
         <SignUpButton type="submit">Sign Up</SignUpButton>
         </div>
       </form>
+      <Image src={floatingJordan} />
+    </Page>
   );
 }
 

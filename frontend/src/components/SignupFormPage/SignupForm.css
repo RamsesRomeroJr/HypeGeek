@@ -2,6 +2,8 @@
 .signup-label{
     color: grey;
     margin: 0;
+    font-family: 'Staatliches', cursive;
+    font-weight:3;
 }
 
 .formContainer{
