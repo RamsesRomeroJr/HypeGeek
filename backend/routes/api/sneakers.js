@@ -1,6 +1,6 @@
 const express = require('express');
 const asyncHandler = require('express-async-handler');
-const SneaksAPI = require('sneaks-api')
+const SneaksAPI = require('../../sneaks-api')
 const sneaks = new SneaksAPI();
 
 const { User, StoreData, FavShoe } = require('../../db/models')
