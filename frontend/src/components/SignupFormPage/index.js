@@ -4,6 +4,9 @@ import { Redirect } from "react-router-dom";
 import styled from "styled-components";
 import * as sessionActions from "../../store/session";
 import './SignupForm.css';
+import floatingJordan from './floating-Off-White-noBACK.png'
+import { Modal } from '../../context/Modal';
+import LoginForm from '../LoginFormModal/LoginForm';
 
 const Input = styled.input`
   margin-bottom:20px;
@@ -15,6 +18,26 @@ const Input = styled.input`
   background-color:#FCFAF0;
   color:grey;
 `;
+
+const Image = styled.img`
+  width:900px;
+  height:550px;
+  transform:translateY(0px);
+  animation: float 6s ease-in-out infinite;
+
+`
+
+const ImageShadow = styled.div`
+  height:30px;
+  width:500px;
+  border-radius:90%;
+  margin-left:250px;
+  transform:translateY(0px);
+  animation: shadowFloat 6s ease-in-out infinite;
+`
+const ImageContainer = styled.div`
+  padding:0;
+`
 
 const SignUpButton = styled.button`
   width:75px;
@@ -30,6 +53,25 @@ const SignUpButton = styled.button`
   }
 `;
 
+const LoginButton = styled.button`
+  width:75px;
+  margin-bottom:4px;
+  margin-top:4px;
+  border:solid 1px lightgrey;
+  background-color:#FCFAF0;
+  color:grey;
+  &:hover{
+    background-color:green;
+    color:#FCFAF0;
+  }
+`;
+
+
+const Page = styled.div`
+  display:flex;
+  align-items:center;
+  justify-content:space-around;
+`
 function SignupFormPage() {
   const dispatch = useDispatch();
   const sessionUser = useSelector((state) => state.session.user);
@@ -38,6 +80,7 @@ function SignupFormPage() {
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
   const [errors, setErrors] = useState([]);
+  const [showModal, setShowModal] = useState(false);
 
   if (sessionUser) return <Redirect to="/home" />;
 
@@ -54,6 +97,7 @@ function SignupFormPage() {
   };
 
   return (
+    <Page>
     <form onSubmit={handleSubmit} className="form">
       <div className='formContainer'>
         <ul>
@@ -92,8 +136,19 @@ function SignupFormPage() {
           />
 
         <SignUpButton type="submit">Sign Up</SignUpButton>
+        <LoginButton type="button" onClick={() => setShowModal(true)}>Login</LoginButton>
+        {showModal && (
+        <Modal onClose={() => setShowModal(false)}>
+          <LoginForm />
+        </Modal>
+      )}
         </div>
       </form>
+      <ImageContainer>
+        <Image src={floatingJordan} />
+        <ImageShadow />
+      </ImageContainer>
+    </Page>
   );
 }
 

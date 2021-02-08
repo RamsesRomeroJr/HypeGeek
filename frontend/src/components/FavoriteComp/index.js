@@ -5,10 +5,17 @@ import {createFavorite, unfavorite, userFav} from '../../store/favorites'
 import {FaStar} from 'react-icons/fa'
 import {FiStar} from 'react-icons/fi'
 import {fetch} from '../../store/csrf.js'
-
+import { useHistory } from "react-router-dom";
+import './FavoriteComp.css'
 
 function FavoriteComp({sneakerInfo}){
     const dispatch = useDispatch()
+
+    const history = useHistory();
+    const user = useSelector((state) => state.session.user)
+    if(!user){
+        history.push(`/`)
+    }
     const userId = useSelector((state)=>state.session.user.id)
     const thumbnail = sneakerInfo.thumbnail
     const {
@@ -18,6 +25,7 @@ function FavoriteComp({sneakerInfo}){
     } = sneakerInfo
 
     const [isFavorited, setFavorited] = useState(false)
+
 
     async function getFavorites(){
         let res = await fetch(`/api/sneaker/userFav/${userId}`)
@@ -49,9 +57,11 @@ function FavoriteComp({sneakerInfo}){
         <div>
             {!isFavorited && <FiStar
                 onClick={favoriting}
+                className='star unfavorite'
             />}
             {isFavorited && <FaStar
                 onClick={unfavoriting}
+                className='star favorite'
             />}
         </div>
     )

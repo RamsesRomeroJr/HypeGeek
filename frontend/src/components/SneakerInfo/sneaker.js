@@ -2,7 +2,8 @@ import React from "react";
 import styled from "styled-components";
 import ImageSlider from './Slider/ImageSlider'
 import FavoriteComp from '../FavoriteComp/index.js'
-import {userFav} from '../../store/favorites'
+import { useHistory } from "react-router-dom";
+import { useSelector } from "react-redux";
 
 
 const SneakerContainer = styled.div`
@@ -25,6 +26,13 @@ const SneakerImages = styled.img`
 `
 
 function Sneaker({sneakerInfo}){
+    const history = useHistory();
+
+    const user = useSelector((state) => state.session.user)
+    if(!user){
+        history.push(`/`)
+    }
+
 
     const sneakerName = sneakerInfo.shoeName;
     const images = sneakerInfo.imageLinks

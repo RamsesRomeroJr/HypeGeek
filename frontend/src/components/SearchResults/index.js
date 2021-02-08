@@ -1,6 +1,7 @@
 import React, { useEffect } from "react"
 import { useSelector } from "react-redux";
 import styled from 'styled-components';
+import { useHistory } from "react-router-dom";
 import Shoe from '../HomePage/shoe.js'
 
 const ShoesContainer = styled.div`
@@ -19,9 +20,12 @@ const ShoesContainer = styled.div`
 
 const SearchResults = () =>{
     const results = useSelector((state)=> state.searchResults.results);
+    const history = useHistory();
+    const user = useSelector((state) => state.session.user)
 
-
-
+    if(!user){
+        history.push(`/`)
+    }
     return (
         <div>
             <ShoesContainer>
