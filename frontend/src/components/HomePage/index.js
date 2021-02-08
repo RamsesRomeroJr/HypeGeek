@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import styled from "styled-components";
 import { getPopularShoes } from '../../store/home'
+import { useHistory } from "react-router-dom";
 import Shoe from './shoe.js'
 
 const ShoesContainer = styled.div`
@@ -25,12 +26,17 @@ const ContainerTitle = styled.h2`
 
 function HomePage() {
     const dispatch = useDispatch();
+    const history = useHistory();
 
     useEffect(() => {
         dispatch(getPopularShoes())
     },[dispatch])
 
     const allShoes = useSelector((state) => state.home.products)
+    const user = useSelector((state) => state.session.user)
+    if(!user){
+        history.push(`/`)
+    }
 
     return (
         <div>
