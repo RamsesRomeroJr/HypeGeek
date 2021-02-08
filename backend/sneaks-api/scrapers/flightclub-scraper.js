@@ -52,7 +52,7 @@ module.exports = {
                     },
                     http2: true
                 });
-                var token = response.body || 'Ohz5JzP9--FBpoJ3tShpu47pXGeNOrQnOPG0'
+                var token = 'Ohz5JzP9--FBpoJ3tShpu47pXGeNOrQnOPG0'
                 console.log(token)
                 let priceMap = {};
                 try {
