@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { useParams } from "react-router-dom";
+import { useParams, useHistory } from "react-router-dom";
 import styled from "styled-components";
 import { getSneakerInfo } from '../../store/sneaker'
 import Sneaker from './sneaker.js'
@@ -27,6 +27,12 @@ function SneakerInfo(){
     const {styleId} = useParams();
 
     const dispatch = useDispatch();
+    const history = useHistory();
+
+    const user = useSelector((state) => state.session.user)
+    if(!user){
+        history.push(`/`)
+    }
 
     useEffect(() =>{
         dispatch(getSneakerInfo(styleId))

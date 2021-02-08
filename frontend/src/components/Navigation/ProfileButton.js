@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useDispatch } from 'react-redux';
 import * as sessionActions from '../../store/session';
 import styled from 'styled-components'
+import { useHistory } from "react-router-dom";
 
 const ProButton = styled.button`
   width:75px;
@@ -20,7 +21,12 @@ const ProButton = styled.button`
 
 function ProfileButton({ user }) {
   const dispatch = useDispatch();
+  const history = useHistory();
   const [showMenu, setShowMenu] = useState(false);
+
+  if(!user){
+    history.push(`/`)
+}
 
   const openMenu = () => {
     if (showMenu) return;
@@ -42,6 +48,9 @@ function ProfileButton({ user }) {
   const logout = (e) => {
     e.preventDefault();
     dispatch(sessionActions.logout());
+    if(!user){
+      history.push(`/`)
+  }
 
   };
 
