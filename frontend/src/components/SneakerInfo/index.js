@@ -18,7 +18,8 @@ const SneakerInfoContainer = styled.div`
     /* padding-top: 15px;
     padding-bottom: 50px; */
     border-radius:10px;
-    border: 1px solid green;
+    border:solid 0.5px lightgrey;
+    box-shadow: 0 1px 5px 0px rgba(0,0,0,0.6);
     background-color: white;
     overflow:hidden;
 `
@@ -41,7 +42,7 @@ function SneakerInfo(){
     const sneakerInfo = useSelector((state) => state.sneaker.sneakerInfo)
 
     return (
-        <div>
+        <div style={{marginTop:'25px'}}>
             {!sneakerInfo && <h4>Loading...</h4>}
             {sneakerInfo && (
             <SneakerInfoContainer>

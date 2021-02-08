@@ -21,6 +21,11 @@ const ShoesContainer = styled.div`
 const ContainerTitle = styled.h2`
     font-family: 'Staatliches', cursive;
     font-size:40px;
+    text-shadow: 0px 1px 3px rgba(0,0,0,0.6);
+
+    &:hover{
+        text-shadow: 0 5px 15px 0px rgba(0,128,0,0.9);
+    }
 
 `
 

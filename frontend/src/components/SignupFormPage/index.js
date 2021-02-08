@@ -13,10 +13,11 @@ const Input = styled.input`
   margin-top:10px;
   padding: 8px 0 8px 8px;
   border:solid 0.5px lightgrey;
-  // border-radius:5px;
+  /* box-shadow: 0 1px 2px 0px rgba(0,0,0,0.6); */
   justify-self: center;
   background-color:#FCFAF0;
   color:grey;
+  outline:none;
 `;
 
 const Image = styled.img`
@@ -46,10 +47,13 @@ const SignUpButton = styled.button`
   background-color:#FCFAF0;
   border:solid 0.5px lightgrey;
   color:grey;
+  box-shadow: 0 1px 2px 0px rgba(0,0,0,0.6);
+  outline:none;
   &:hover{
-    background-color:green;
-    color:#FCFAF0;
     border:solid 0.5px lightgrey;
+    box-shadow: 0 3px 9px 0px rgba(0,128,0,0.6);
+    color:green;
+    font-weight:600;
   }
 `;
 
@@ -60,9 +64,13 @@ const LoginButton = styled.button`
   border:solid 1px lightgrey;
   background-color:#FCFAF0;
   color:grey;
+  box-shadow: 0 1px 2px 0px rgba(0,0,0,0.6);
+  outline:none;
   &:hover{
-    background-color:green;
-    color:#FCFAF0;
+    border:solid 0.5px lightgrey;
+    box-shadow: 0 3px 9px 0px rgba(0,128,0,0.6);
+    color:green;
+    font-weight:600;
   }
 `;
 
