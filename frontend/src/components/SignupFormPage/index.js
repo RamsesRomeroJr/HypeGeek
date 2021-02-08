@@ -19,6 +19,7 @@ const Input = styled.input`
 
 const Image = styled.img`
   width:900px;
+  height:550px;
   transform:translateY(0px);
   animation: float 6s ease-in-out infinite;
 
@@ -28,7 +29,7 @@ const ImageShadow = styled.div`
   height:30px;
   width:500px;
   border-radius:90%;
-  margin-left:200px;
+  margin-left:250px;
   transform:translateY(0px);
   animation: shadowFloat 6s ease-in-out infinite;
 `
