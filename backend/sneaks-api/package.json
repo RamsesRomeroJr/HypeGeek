@@ -1,0 +1,80 @@
+{
+  "_from": "sneaks-api",
+  "_id": "sneaks-api@1.1.1",
+  "_inBundle": false,
+  "_integrity": "sha512-qDHXmoB5PVtl7TnpOh386FPowLRvmlBW/kh+l+W1n85abOYrIvX5IXb2gLKFVSleHfQoby92AirxGCF/5l2NAQ==",
+  "_location": "/sneaks-api",
+  "_phantomChildren": {
+    "@types/cacheable-request": "6.0.1",
+    "@types/responselike": "1.0.0",
+    "cacheable-lookup": "5.0.4",
+    "clone-response": "1.0.2",
+    "http-cache-semantics": "4.1.0",
+    "http2-wrapper": "1.0.0-beta.5.2",
+    "normalize-url": "4.5.0",
+    "pump": "3.0.0"
+  },
+  "_requested": {
+    "type": "tag",
+    "registry": true,
+    "raw": "sneaks-api",
+    "name": "sneaks-api",
+    "escapedName": "sneaks-api",
+    "rawSpec": "",
+    "saveSpec": null,
+    "fetchSpec": "latest"
+  },
+  "_requiredBy": [
+    "#USER",
+    "/"
+  ],
+  "_resolved": "https://registry.npmjs.org/sneaks-api/-/sneaks-api-1.1.1.tgz",
+  "_shasum": "2efe6b39faa913aa3d1f025aea63e64f34e1062d",
+  "_spec": "sneaks-api",
+  "_where": "/mnt/c/Users/realb/OneDrive/Desktop/aaCoding/sept2020/HypeGeek/backend",
+  "author": {
+    "name": "druv5319@gmail.com"
+  },
+  "bugs": {
+    "url": "https://github.com/druv5319/Sneaks-API/issues"
+  },
+  "bundleDependencies": false,
+  "dependencies": {
+    "axios": "^0.19.2",
+    "cheerio": "^1.0.0-rc.3",
+    "core-util-is": "^1.0.2",
+    "cors": "^2.8.5",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "got": "^11.6.0",
+    "mongoose": "^5.10.3",
+    "request": "^2.88.2"
+  },
+  "deprecated": false,
+  "description": "A RESTful API that collects and returns data on sneakers. This API will also find, compare and return a link of where to buy the sneaker based on the price.",
+  "devDependencies": {},
+  "homepage": "https://github.com/druv5319/Sneaks-API#readme",
+  "keywords": [
+    "sneakers",
+    "shoes",
+    "goat",
+    "stadium goods",
+    "flight club",
+    "stockx",
+    "restful",
+    "api",
+    "nodejs"
+  ],
+  "license": "MIT",
+  "main": "index.js",
+  "name": "sneaks-api",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/druv5319/Sneaks-API.git"
+  },
+  "scripts": {
+    "start": "node index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "version": "1.1.1"
+}
