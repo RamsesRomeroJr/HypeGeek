@@ -1,16 +1,32 @@
 import React, { useState, useEffect } from "react";
 import { useDispatch } from 'react-redux';
 import * as sessionActions from '../../store/session';
+import styled from 'styled-components'
+
+const ProButton = styled.button`
+  width:75px;
+  margin-bottom:4px;
+  margin-top:4px;
+  border:solid 1px lightgrey;
+  background-color:#FCFAF0;
+  color:grey;
+  &:hover{
+    background-color:green;
+    color:#FCFAF0;
+  }
+`;
+
+
 
 function ProfileButton({ user }) {
   const dispatch = useDispatch();
   const [showMenu, setShowMenu] = useState(false);
-  
+
   const openMenu = () => {
     if (showMenu) return;
     setShowMenu(true);
   };
-  
+
   useEffect(() => {
     if (!showMenu) return;
 
@@ -19,7 +35,7 @@ function ProfileButton({ user }) {
     };
 
     document.addEventListener('click', closeMenu);
-  
+
     return () => document.removeEventListener("click", closeMenu);
   }, [showMenu]);
 
@@ -30,15 +46,15 @@ function ProfileButton({ user }) {
 
   return (
     <>
-      <button onClick={openMenu}>
+      <ProButton onClick={openMenu}>
         <i className="fas fa-user-circle" />
-      </button>
+      </ProButton>
       {showMenu && (
         <ul className="profile-dropdown">
           <li>{user.username}</li>
           <li>{user.email}</li>
           <li>
-            <button onClick={logout}>Log Out</button>
+            <ProButton onClick={logout}>Log Out</ProButton>
           </li>
         </ul>
       )}

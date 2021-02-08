@@ -1,6 +1,15 @@
-/* .profile-dropdown {
+.profile-dropdown {
   position: absolute;
-} */
+  list-style-type: none;
+  background-color: white;
+  border-radius: 10px;
+  border: 1px solid green;
+  padding: 10px;
+  margin-top: 4px;
+  font-family: 'Staatliches', cursive;
+  font-weight:3;
+  color: grey;
+}
 
 .NavBar{
   border-bottom: 1px solid green;
