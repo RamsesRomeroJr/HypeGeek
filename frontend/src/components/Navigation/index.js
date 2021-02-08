@@ -15,6 +15,7 @@ const LoginButton = styled.button`
   border:solid 1px lightgrey;
   background-color:#FCFAF0;
   color:grey;
+  box-shadow: 0 2px 1px 0px rgba(0,0,0,0.6);
   &:hover{
     background-color:green;
     color:#FCFAF0;

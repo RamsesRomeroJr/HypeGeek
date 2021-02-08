@@ -11,9 +11,12 @@ const Input = styled.input`
     text-align:center;
     border-radius:6px;
     border:1px solid green;
+    box-shadow: 0 2px 5px 0px rgba(0,0,0,0.6);
 
     &::-webkit-input-placeholder{
         color:grey;
+        font-family: 'Staatliches', cursive;
+        font-weight:lighter;
     }
 `
 

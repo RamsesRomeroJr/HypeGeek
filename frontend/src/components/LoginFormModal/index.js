@@ -10,6 +10,9 @@ const LoginButton = styled.button`
   border:solid 1px lightgrey;
   background-color:#FCFAF0;
   color:grey;
+  font-family: 'Staatliches', cursive;
+  font-weight:100;
+  box-shadow: 0 1px 2px 0px rgba(0,0,0,0.6);
   &:hover{
     background-color:green;
     color:#FCFAF0;
