@@ -19,6 +19,21 @@ const Input = styled.input`
 
 const Image = styled.img`
   width:900px;
+  transform:translateY(0px);
+  animation: float 6s ease-in-out infinite;
+
+`
+
+const ImageShadow = styled.div`
+  height:30px;
+  width:500px;
+  border-radius:90%;
+  margin-left:200px;
+  transform:translateY(0px);
+  animation: shadowFloat 6s ease-in-out infinite;
+`
+const ImageContainer = styled.div`
+  padding:0;
 `
 
 const SignUpButton = styled.button`
@@ -105,7 +120,10 @@ function SignupFormPage() {
         <SignUpButton type="submit">Sign Up</SignUpButton>
         </div>
       </form>
-      <Image src={floatingJordan} />
+      <ImageContainer>
+        <Image src={floatingJordan} />
+        <ImageShadow />
+      </ImageContainer>
     </Page>
   );
 }
