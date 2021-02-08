@@ -9,15 +9,11 @@ module.exports = {
         type: Sequelize.INTEGER
       },
       styleId: {
-        type: Sequelize.INTEGER,
+        type: Sequelize.STRING,
         allowNull: false,
       },
       shoeName: {
         type: Sequelize.STRING,
-        allowNull: false,
-      },
-      date: {
-        type: Sequelize.DATE,
         allowNull: false,
       },
       lowestPrice: {

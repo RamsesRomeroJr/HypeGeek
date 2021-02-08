@@ -31,8 +31,29 @@ router.get('/search/:sneaker', asyncHandler(async(req,res)=>{
 router.get('/info/:styleID', asyncHandler(async(req,res)=>{
     let styleId = req.params.styleID
 
-    await sneaks.getProductPrices(`${styleId}`, (err, products)=>{
+    await sneaks.getProductPrices(`${styleId}`, async (err, products)=>{
         // here figure out how to save info into StoreData
+        const {
+            styleID,
+            shoeName,
+        } = products
+        const {
+            stockX,
+            goat,
+            stadiumGoods,
+            flightClub
+        } = products.lowestResellPrice
+        let lowestPrice = Math.min(stockX,goat,stadiumGoods,flightClub)
+
+        await StoreData.create({styleId,
+            shoeName,
+            lowestPrice,
+            stockxLow:stockX,
+            goatLow:goat,
+            flightClubLow:flightClub,
+            stadiumGoodsLow:stadiumGoods
+        })
+
         return res.json({
             products
         })
