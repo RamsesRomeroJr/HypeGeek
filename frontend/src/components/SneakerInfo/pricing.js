@@ -31,6 +31,10 @@ const FlightLogo = styled.img`
 function Pricing ({sneakerInfo}){
     let lowestPrices = sneakerInfo.lowestResellPrice
     const resellPrices = sneakerInfo.resellPrices
+    let stockXPrices=[];
+    let goatPrices = []
+    let flightClubPrices = []
+    let stadiumGoodsPrices = []
 
     const priceArrayCreator = (priceObj) =>{
         // let key = 4;
@@ -43,13 +47,38 @@ function Pricing ({sneakerInfo}){
         return prices;
     }
 
+    if(resellPrices.stockX) {stockXPrices = priceArrayCreator(resellPrices.stockX)};
+    if(!resellPrices.stockX) {
+        for(let i=4; i<15; i+=0.5){
+            stockXPrices.push(0)
+        }
 
-    let stockXPrices = priceArrayCreator(resellPrices.stockX)
-    let goatPrices = priceArrayCreator(resellPrices.goat)
-    let flightClubPrices = priceArrayCreator(resellPrices.flightClub)
-    let stadiumGoodsPrices = priceArrayCreator(resellPrices.stadiumGoods)
+    };
 
-    priceArrayCreator(resellPrices.stockX)
+    if(resellPrices.goat) {goatPrices = priceArrayCreator(resellPrices.goat)};
+    if(!resellPrices.goat) {
+        for(let i=4; i<15; i+=0.5){
+            goatPrices.push(0)
+        }
+
+    };
+
+    if(resellPrices.flightClub) {flightClubPrices = priceArrayCreator(resellPrices.flightClub)};
+    if(!resellPrices.flightClub) {
+        for(let i=4; i<15; i+=0.5){
+            flightClubPrices.push(0)
+        }
+
+    };
+
+    if(resellPrices.stadiumGoods) {stadiumGoodsPrices = priceArrayCreator(resellPrices.stadiumGoods)};
+    if(!resellPrices.stadiumGoods) {
+        for(let i=4; i<15; i+=0.5){
+            stadiumGoodsPrices.push(0)
+        }
+
+    };
+
     const classes = useStyles()
 
     return(
