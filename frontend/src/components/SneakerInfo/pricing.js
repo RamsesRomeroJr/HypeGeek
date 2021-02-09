@@ -9,6 +9,7 @@ import TableContainer from '@material-ui/core/TableContainer';
 import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
+import './pricing.css'
 import stockXLogo from './stockx-vector-logo.png'
 import goatLogo from "./goat-sneaker-logo.jpg"
 import flightClubLogo from "./flightClub-Logo.jpg"
@@ -89,7 +90,7 @@ function Pricing ({sneakerInfo}){
         //         </div>
         //     ))}
         // </div>
-        <TableContainer component={Paper}>
+        <TableContainer component={Paper} className='tableContainer'>
             <Table className={classes.table} aria-label="simple table">
                 <TableHead>
                     <TableRow>
