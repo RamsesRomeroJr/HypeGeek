@@ -8,7 +8,7 @@ import {fetch} from '../../store/csrf.js'
 import { useHistory } from "react-router-dom";
 import './FavoriteComp.css'
 
-function FavoriteComp({sneakerInfo}){
+function FavoriteComp({sneakerInfo, Favorite}){
     const dispatch = useDispatch()
 
     const history = useHistory();
@@ -29,7 +29,9 @@ function FavoriteComp({sneakerInfo}){
 
     async function getFavorites(){
         let res = await fetch(`/api/sneaker/userFav/${userId}`)
+
         let favoritesArr = res.data.userFavorites
+        dispatch(userFav(favoritesArr))
         for(let i=0; i<favoritesArr.length; i++){
 
             if(favoritesArr[i]['styleId'] === styleID){
@@ -42,6 +44,7 @@ function FavoriteComp({sneakerInfo}){
 
     useEffect(()=>{
         getFavorites()
+
     }, [dispatch])
 
     function favoriting (){

@@ -3,7 +3,8 @@ import styled from "styled-components";
 import ImageSlider from './Slider/ImageSlider'
 import FavoriteComp from '../FavoriteComp/index.js'
 import { useHistory } from "react-router-dom";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
+import {userFav} from '../../store/favorites'
 
 
 const SneakerContainer = styled.div`
@@ -27,12 +28,27 @@ const SneakerImages = styled.img`
 
 function Sneaker({sneakerInfo}){
     const history = useHistory();
+    const dispatch = useDispatch()
 
     const user = useSelector((state) => state.session.user)
+    const userId = user.id
+
+    async function getFavorites(){
+        let res = await fetch(`/api/sneaker/userFav/${userId}`)
+        console.log(res.data)
+        let favoritesArr = res.data
+        return favoritesArr
+    }
+
+    useEffect(()=>{
+        getFavorites()
+        // dispatch(userFav(fav))
+    }, [dispatch])
+
     if(!user){
         history.push(`/`)
     }
-    const userId = user.id
+
 
 
     const sneakerName = sneakerInfo.shoeName;

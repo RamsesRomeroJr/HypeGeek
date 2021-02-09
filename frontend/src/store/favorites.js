@@ -39,12 +39,12 @@ export const unfavorite = ({styleID, userId}) => async(dispatch) => {
     return res
 }
 
-export const userFav = ({userId}) => async(dispatch) => {
-    const res = await fetch(`api/sneaker/userfav/${userId}`)
+export const userFav = (favorites) => async(dispatch) => {
+    // const res = await fetch(`/api/sneaker/userfav/${userId}`)
 
-    dispatch(setFavorites(res.data.userFavorites))
+    dispatch(setFavorites(favorites))
 
-    return res
+    return favorites
 }
 
     const initialState = {favorites: []};
