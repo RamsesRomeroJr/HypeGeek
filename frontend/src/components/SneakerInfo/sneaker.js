@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState, useEffect} from "react";
 import styled from "styled-components";
 import ImageSlider from './Slider/ImageSlider'
 import FavoriteComp from '../FavoriteComp/index.js'
