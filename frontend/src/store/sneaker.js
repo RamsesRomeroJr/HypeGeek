@@ -8,7 +8,7 @@ const setSneaker = (sneaker) => ({
 });
 
 export const getSneakerInfo = (styleId) => async(dispatch) => {
-    const res = await fetch(`https://sneaks-api.azurewebsites.net/id/${styleId}/prices`)
+    const res = await fetch(`/api/sneaker/info/${styleId}`)
 
     dispatch(setSneaker(res.data.products));
     return res;
