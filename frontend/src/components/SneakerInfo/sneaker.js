@@ -32,6 +32,7 @@ function Sneaker({sneakerInfo}){
     if(!user){
         history.push(`/`)
     }
+    const userId = user.id
 
 
     const sneakerName = sneakerInfo.shoeName;

@@ -11,7 +11,7 @@ import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
 import './pricing.css'
 import stockXLogo from './stockx-vector-logo.png'
-import goatLogo from "./goat-sneaker-logo.jpg"
+import goatLogo from "./goat-sneaker-logo.png"
 import flightClubLogo from "./flightClub-Logo.jpg"
 import stadiumGoodsLogo from "./Stadium-goods.png"
 
