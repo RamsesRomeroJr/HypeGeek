@@ -2,6 +2,7 @@ const express = require('express');
 const asyncHandler = require('express-async-handler');
 const SneaksAPI = require('../../sneaks-api')
 const sneaks = new SneaksAPI();
+const fetch = require('node-fetch');
 
 const { User, StoreData, FavShoe } = require('../../db/models')
 
@@ -30,6 +31,9 @@ router.get('/search/:sneaker', asyncHandler(async(req,res)=>{
 
 router.get('/info/:styleID', asyncHandler(async(req,res)=>{
     let styleId = req.params.styleID
+
+    // let resss = await fetch('https://sneaks-api.azurewebsites.net/id/CP9652/prices')
+    // console.log( JSON.parse(resss.body))
 
     await sneaks.getProductPrices(`${styleId}`, async (err, products)=>{
         // here figure out how to save info into StoreData

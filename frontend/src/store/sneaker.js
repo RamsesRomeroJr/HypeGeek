@@ -8,10 +8,25 @@ const setSneaker = (sneaker) => ({
 });
 
 export const getSneakerInfo = (styleId) => async(dispatch) => {
-    const res = await fetch(`/api/sneaker/info/${styleId}`)
+    const myHeaders = new Headers({
+        "Content-Type": "application/json",
+        Accept: "application/json"
+      });
 
-    dispatch(setSneaker(res.data.products));
-    return res;
+    //Old fetch to back end library
+    // const res = await fetch(`/api/sneaker/info/${styleId}`)
+
+    //new fetch
+    fetch("https://sneaks-api.azurewebsites.net/id/" + styleId + '/prices', {
+          headers: myHeaders,
+        })
+        .then(response => {
+            console.log(response);
+            dispatch(setSneaker(response.data));
+
+        });
+
+    // return res;
 }
 
 const initialState = {sneakerInfo: null};

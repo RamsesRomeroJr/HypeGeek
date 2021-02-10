@@ -9,8 +9,9 @@ import TableContainer from '@material-ui/core/TableContainer';
 import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
+import './pricing.css'
 import stockXLogo from './stockx-vector-logo.png'
-import goatLogo from "./goat-sneaker-logo.jpg"
+import goatLogo from "./goat-sneaker-logo.png"
 import flightClubLogo from "./flightClub-Logo.jpg"
 import stadiumGoodsLogo from "./Stadium-goods.png"
 
@@ -31,6 +32,10 @@ const FlightLogo = styled.img`
 function Pricing ({sneakerInfo}){
     let lowestPrices = sneakerInfo.lowestResellPrice
     const resellPrices = sneakerInfo.resellPrices
+    let stockXPrices=[];
+    let goatPrices = []
+    let flightClubPrices = []
+    let stadiumGoodsPrices = []
 
     const priceArrayCreator = (priceObj) =>{
         // let key = 4;
@@ -43,13 +48,38 @@ function Pricing ({sneakerInfo}){
         return prices;
     }
 
+    if(resellPrices.stockX) {stockXPrices = priceArrayCreator(resellPrices.stockX)};
+    if(!resellPrices.stockX) {
+        for(let i=4; i<15; i+=0.5){
+            stockXPrices.push(0)
+        }
 
-    let stockXPrices = priceArrayCreator(resellPrices.stockX)
-    let goatPrices = priceArrayCreator(resellPrices.goat)
-    let flightClubPrices = priceArrayCreator(resellPrices.flightClub)
-    let stadiumGoodsPrices = priceArrayCreator(resellPrices.stadiumGoods)
+    };
 
-    priceArrayCreator(resellPrices.stockX)
+    if(resellPrices.goat) {goatPrices = priceArrayCreator(resellPrices.goat)};
+    if(!resellPrices.goat) {
+        for(let i=4; i<15; i+=0.5){
+            goatPrices.push(0)
+        }
+
+    };
+
+    if(resellPrices.flightClub) {flightClubPrices = priceArrayCreator(resellPrices.flightClub)};
+    if(!resellPrices.flightClub) {
+        for(let i=4; i<15; i+=0.5){
+            flightClubPrices.push(0)
+        }
+
+    };
+
+    if(resellPrices.stadiumGoods) {stadiumGoodsPrices = priceArrayCreator(resellPrices.stadiumGoods)};
+    if(!resellPrices.stadiumGoods) {
+        for(let i=4; i<15; i+=0.5){
+            stadiumGoodsPrices.push(0)
+        }
+
+    };
+
     const classes = useStyles()
 
     return(
@@ -60,7 +90,7 @@ function Pricing ({sneakerInfo}){
         //         </div>
         //     ))}
         // </div>
-        <TableContainer component={Paper}>
+        <TableContainer component={Paper} className='tableContainer'>
             <Table className={classes.table} aria-label="simple table">
                 <TableHead>
                     <TableRow>
@@ -100,7 +130,7 @@ function Pricing ({sneakerInfo}){
                             if(!price){
                                 return <TableCell key={i}>$-</TableCell>
                             }
-                            return <TableCell key={i} style={{color:'green'}}>${price}</TableCell>
+                            return <TableCell key={i} >${price}</TableCell>
                         })}
                     </TableRow>
                     <TableRow>
@@ -111,9 +141,9 @@ function Pricing ({sneakerInfo}){
                         </TableCell>
                         {goatPrices.map((price, i)=>{
                             if(!price){
-                                return <TableCell key={i}>$-</TableCell>
+                                return <TableCell key={i} style={{color:'green'}}>$-</TableCell>
                             }
-                            return <TableCell key={i}>${price}</TableCell>
+                            return <TableCell key={i} style={{color:'green'}}>${price}</TableCell>
                         })}
                     </TableRow>
                     <TableRow>
@@ -126,7 +156,7 @@ function Pricing ({sneakerInfo}){
                             if(!price){
                                 return <TableCell key={i}>$-</TableCell>
                             }
-                            return <TableCell key={i} style={{color:'green'}}>${price}</TableCell>
+                            return <TableCell key={i} >${price}</TableCell>
                         })}
                     </TableRow>
                     <TableRow>
@@ -137,9 +167,9 @@ function Pricing ({sneakerInfo}){
                         </TableCell>
                         {stadiumGoodsPrices.map((price, i)=>{
                             if(!price){
-                                return <TableCell key={i}>$-</TableCell>
+                                return <TableCell key={i} style={{color:'green'}}>$-</TableCell>
                             }
-                            return <TableCell key={i}>${price}</TableCell>
+                            return <TableCell key={i} style={{color:'green'}}>${price}</TableCell>
                         })}
                     </TableRow>
                 </TableBody>
