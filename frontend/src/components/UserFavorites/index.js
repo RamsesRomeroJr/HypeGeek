@@ -6,6 +6,7 @@ import styled from "styled-components";
 import Shoe from "./shoe"
 import {fetch} from '../../store/csrf.js'
 
+
 const ShoesContainer = styled.div`
     box-sizing:border-box;
     display: grid;
@@ -36,6 +37,7 @@ function UserFavorites(){
     const user = useSelector((state) => state.session.user)
 
     if(!user){
+        console.log(user)
         history.push(`/`)
     }
 
@@ -43,7 +45,6 @@ function UserFavorites(){
 
     async function getFavorites(){
         let res = await fetch(`/api/sneaker/userFav/${userId}`)
-        console.log(res.data)
         let favoritesArr = res.data.userFavorites
         dispatch(userFav(favoritesArr))
         return
@@ -62,9 +63,9 @@ function UserFavorites(){
                 <ContainerTitle>Your Favorites</ContainerTitle>
             </div>
             <ShoesContainer>
-                {!favorites && <h4>No Current Favorites</h4>}
+                {!favorites.length && <h4>No Current Favorites</h4>}
                 {favorites && favorites.map(shoe => {
-                    return <Shoe key={shoe._id} sneaker={shoe}/>
+                    return <Shoe key={shoe.id} sneaker={shoe}/>
                 })}
             </ShoesContainer>
         </div>
