@@ -8,6 +8,7 @@ import SneakerInfo from "./components/SneakerInfo"
 import * as sessionActions from "./store/session";
 import Navigation from "./components/Navigation";
 import SearchResults from "./components/SearchResults"
+import UserFavorites from "./components/UserFavorites"
 
 function App() {
   const dispatch = useDispatch();
@@ -35,6 +36,9 @@ function App() {
           </Route>
           <Route path="/search-results">
             <SearchResults />
+          </Route>
+          <Route path="/favorites">
+            <UserFavorites/>
           </Route>
         </Switch>
       )}

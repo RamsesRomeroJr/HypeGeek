@@ -1,8 +1,34 @@
 import React, {useEffect} from 'react';
 import {useDispatch, useSelector} from 'react-redux';
-import {useSelector, useDispatch} from 'react-redux'
-import {createFavorite, unfavorite, userFav} from '../../store/favorites'
+import {userFav} from '../../store/favorites'
 import { useHistory } from "react-router-dom";
+import styled from "styled-components";
+import Shoe from "./shoe"
+import {fetch} from '../../store/csrf.js'
+
+const ShoesContainer = styled.div`
+    box-sizing:border-box;
+    display: grid;
+    grid-template-columns: repeat(auto-fill,240px);
+    justify-content: center;
+    grid-auto-rows: auto;
+    grid-gap: 27px;
+    margin: 0 auto;
+    width: 94%;
+    padding-top: 15px;
+    padding-bottom: 50px;
+`
+
+const ContainerTitle = styled.h2`
+    font-family: 'Staatliches', cursive;
+    font-size:40px;
+    text-shadow: 0px 1px 3px rgba(0,0,0,0.6);
+
+    &:hover{
+        text-shadow: 0 5px 15px 0px rgba(0,128,0,0.9);
+    }
+
+`
 
 function UserFavorites(){
     const dispatch = useDispatch()
@@ -17,17 +43,10 @@ function UserFavorites(){
 
     async function getFavorites(){
         let res = await fetch(`/api/sneaker/userFav/${userId}`)
-
+        console.log(res.data)
         let favoritesArr = res.data.userFavorites
         dispatch(userFav(favoritesArr))
-        for(let i=0; i<favoritesArr.length; i++){
-
-            if(favoritesArr[i]['styleId'] === styleID){
-               return setFavorited(true)
-            }
-
-        }
-        return setFavorited(false)
+        return
     }
 
     useEffect(()=>{
@@ -39,7 +58,15 @@ function UserFavorites(){
 
     return (
         <div>
-
+            <div style={{display:"flex", justifyContent:"center"}}>
+                <ContainerTitle>Your Favorites</ContainerTitle>
+            </div>
+            <ShoesContainer>
+                {!favorites && <h4>No Current Favorites</h4>}
+                {favorites && favorites.map(shoe => {
+                    return <Shoe key={shoe._id} sneaker={shoe}/>
+                })}
+            </ShoesContainer>
         </div>
     )
 
