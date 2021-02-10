@@ -12,7 +12,7 @@ const SneakerInfoContainer = styled.div`
     grid-template-columns: 1fr 1fr;
     justify-content: center;
     grid-auto-rows: auto;
-    grid-gap: 250px;
+    grid-gap: 150px;
     width: 85%;
     margin: 0 auto;
     /* padding-top: 15px;

@@ -56,8 +56,12 @@ function ProfileButton({ user }) {
     if(!user){
       history.push(`/`)
   }
+};
 
-  };
+const favorite = (e) =>{
+  e.preventDefault();
+  history.push('/favorites')
+}
 
   return (
     <>
@@ -68,6 +72,9 @@ function ProfileButton({ user }) {
         <ul className="profile-dropdown">
           <li>{user.username}</li>
           <li>{user.email}</li>
+          <li>
+          <ProButton onClick={favorite}>Favorites</ProButton>
+          </li>
           <li>
             <ProButton onClick={logout}>Log Out</ProButton>
           </li>
