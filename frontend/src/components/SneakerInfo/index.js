@@ -5,6 +5,7 @@ import styled from "styled-components";
 import { getSneakerInfo } from '../../store/sneaker'
 import Sneaker from './sneaker.js'
 import Pricing from './pricing.js'
+import LineChart from '../LineChart'
 
 const SneakerInfoContainer = styled.div`
     box-sizing:border-box;
@@ -68,6 +69,9 @@ function SneakerInfo(){
                 <Pricing sneakerInfo={sneakerInfo}/>
             </SneakerInfoContainer>
             )}
+            <SneakerInfoContainer>
+                <LineChart />
+            </SneakerInfoContainer>
         </div>
     )
 }
