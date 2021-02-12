@@ -5,13 +5,15 @@ import home from './home'
 import sneaker from './sneaker'
 import searchResults from './searchResults'
 import favorites from './favorites'
+import data from './data'
 
 const rootReducer = combineReducers({
   session,
   home,
   sneaker,
   searchResults,
-  favorites
+  favorites,
+  data
 });
 
 let enhancer;
