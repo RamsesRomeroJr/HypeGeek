@@ -14,7 +14,13 @@ const LineChart = () => {
 
     if(dataInfo != null){
         dataInfo.map( data => {
-            dates.push(data.createdAt)
+            const dateString = `${data.createdAt}`
+
+            const formatDate = (dateString) =>{
+                const options = {year: "numeric", month: "long", day: "numeric", hour: "numeric", minute:"numeric"}
+                return new Date(dateString).toLocaleDateString(undefined, options)
+            }
+            dates.push(formatDate(dateString))
 
             lowestPrice.push(data.lowestPrice)
             stockXLowest.push(data.stockxLow)
