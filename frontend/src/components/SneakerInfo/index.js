@@ -5,6 +5,25 @@ import styled from "styled-components";
 import { getSneakerInfo } from '../../store/sneaker'
 import Sneaker from './sneaker.js'
 import Pricing from './pricing.js'
+import LineChart from '../LineChart/index.js'
+import DataTable from '../LineChart/dataTable.js'
+
+const ChartContainer = styled.div`
+    box-sizing:border-box;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    justify-content: center;
+    grid-auto-rows: auto;
+    grid-gap: 15px;
+    width: 85%;
+    margin: 0 auto;
+    /* padding-top: 15px;
+    padding-bottom: 50px; */
+    border-radius:10px;
+    border:solid 0.5px lightgrey;
+    box-shadow: 0 1px 5px 0px rgba(0,0,0,0.6);
+    background-color: white;
+`
 
 const SneakerInfoContainer = styled.div`
     box-sizing:border-box;
@@ -22,28 +41,13 @@ const SneakerInfoContainer = styled.div`
     box-shadow: 0 1px 5px 0px rgba(0,0,0,0.6);
     background-color: white;
     overflow:hidden;
+
 `
 
-// const myHeaders = new Headers({
-//     "Content-Type": "application/json",
-//     Accept: "application/json"
-//   });
 
 function SneakerInfo(){
 
     const {styleId} = useParams();
-
-    // fetch("https://sneaks-api.azurewebsites.net/id/" + styleId + '/prices', {
-    //       headers: myHeaders,
-    //     })
-    //     .then(response => response.json())
-    //     .then(jsonResponse => {
-    //       console.log(jsonResponse);
-
-    //     });
-
-
-
 
     const dispatch = useDispatch();
     const history = useHistory();
@@ -61,12 +65,19 @@ function SneakerInfo(){
 
     return (
         <div style={{marginTop:'25px'}}>
-            {!sneakerInfo && <h4>Loading...</h4>}
+            {!sneakerInfo && <h4>Loading Sneaker...</h4>}
             {sneakerInfo && (
             <SneakerInfoContainer>
                 <Sneaker sneakerInfo={sneakerInfo}/>
                 <Pricing sneakerInfo={sneakerInfo}/>
             </SneakerInfoContainer>
+            )}
+            {!sneakerInfo && <h4>Loading Graph...</h4>}
+            {sneakerInfo && (
+            <ChartContainer>
+                <LineChart style={{height:'auto', width:'1000px'}}/>
+                <DataTable />
+            </ChartContainer>
             )}
         </div>
     )
