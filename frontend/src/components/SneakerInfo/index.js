@@ -7,6 +7,24 @@ import Sneaker from './sneaker.js'
 import Pricing from './pricing.js'
 import LineChart from '../LineChart'
 
+const ChartContainer = styled.div`
+    box-sizing:border-box;
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    justify-content: center;
+    grid-auto-rows: auto;
+    grid-gap: 15px;
+    width: 85%;
+    margin: 0 auto;
+    /* padding-top: 15px;
+    padding-bottom: 50px; */
+    border-radius:10px;
+    border:solid 0.5px lightgrey;
+    box-shadow: 0 1px 5px 0px rgba(0,0,0,0.6);
+    background-color: white;
+    overflow:hidden;
+`
+
 const SneakerInfoContainer = styled.div`
     box-sizing:border-box;
     display: grid;
@@ -30,10 +48,6 @@ function SneakerInfo(){
 
     const {styleId} = useParams();
 
-
-
-
-
     const dispatch = useDispatch();
     const history = useHistory();
 
@@ -50,16 +64,19 @@ function SneakerInfo(){
 
     return (
         <div style={{marginTop:'25px'}}>
-            {!sneakerInfo && <h4>Loading...</h4>}
+            {!sneakerInfo && <h4>Loading Sneaker...</h4>}
             {sneakerInfo && (
             <SneakerInfoContainer>
                 <Sneaker sneakerInfo={sneakerInfo}/>
                 <Pricing sneakerInfo={sneakerInfo}/>
             </SneakerInfoContainer>
             )}
-            <SneakerInfoContainer>
+            {!sneakerInfo && <h4>Loading Graph...</h4>}
+            {sneakerInfo && (
+            <ChartContainer>
                 <LineChart />
-            </SneakerInfoContainer>
+            </ChartContainer>
+            )}
         </div>
     )
 }

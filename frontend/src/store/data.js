@@ -16,7 +16,7 @@ export const getData = (styleId) => async(dispatch)=>{
 
 export const saveData = ({styleId, shoeName, lowestPrice, stockxLow, goatLow, flightClubLow, stadiumGoodsLow}) =>
     async(dispatch) => {
-        const res = await fetch('api/data/save', {
+        const res = await fetch('/api/data/save', {
             method: 'POST',
             headers: {
                 'Content-Type' : 'application/json'
@@ -27,6 +27,7 @@ export const saveData = ({styleId, shoeName, lowestPrice, stockxLow, goatLow, fl
                 lowestPrice,
                 stockxLow,
                 goatLow,
+                flightClubLow,
                 stadiumGoodsLow
             })
         })

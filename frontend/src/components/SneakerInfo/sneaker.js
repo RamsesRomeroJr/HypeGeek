@@ -4,7 +4,7 @@ import ImageSlider from './Slider/ImageSlider'
 import FavoriteComp from '../FavoriteComp/index.js'
 import { useHistory } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
-import {userFav} from '../../store/favorites'
+import {saveData} from '../../store/data'
 
 
 const SneakerContainer = styled.div`
@@ -39,9 +39,28 @@ function Sneaker({sneakerInfo}){
         let favoritesArr = res.data
         return favoritesArr
     }
+    const {
+        stockX,
+        flightClub,
+        goat,
+        stadiumGoods
+    } = sneakerInfo.lowestResellPrice
+
+    const lowestPrice = Math.min(stockX, flightClub, goat, stadiumGoods)
+
+    const styleId = sneakerInfo.styleID
 
     useEffect(()=>{
         getFavorites()
+        dispatch(saveData({
+            styleId,
+            shoeName:sneakerInfo.shoeName,
+            lowestPrice,
+            stockxLow:stockX,
+            flightClubLow:flightClub,
+            goatLow:goat,
+            stadiumGoodsLow:stadiumGoods
+        }))
         // dispatch(userFav(fav))
     }, [dispatch])
 
