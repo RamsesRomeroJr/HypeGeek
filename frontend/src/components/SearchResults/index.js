@@ -1,8 +1,9 @@
 import React, { useEffect } from "react"
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import styled from 'styled-components';
 import { useHistory } from "react-router-dom";
 import Shoe from '../HomePage/shoe.js'
+import {resetSneakerInfo} from "../../store/sneaker"
 
 const ShoesContainer = styled.div`
     box-sizing:border-box;
@@ -22,6 +23,11 @@ const SearchResults = () =>{
     const results = useSelector((state)=> state.searchResults.results);
     const history = useHistory();
     const user = useSelector((state) => state.session.user)
+    const dispatch = useDispatch()
+
+    useEffect(() => {
+        dispatch(resetSneakerInfo())
+    })
 
     if(!user){
         history.push(`/`)

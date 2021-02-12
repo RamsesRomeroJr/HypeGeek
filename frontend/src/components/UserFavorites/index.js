@@ -5,6 +5,7 @@ import { useHistory } from "react-router-dom";
 import styled from "styled-components";
 import Shoe from "./shoe"
 import {fetch} from '../../store/csrf.js'
+import {resetSneakerInfo} from "../../store/sneaker"
 
 
 const ShoesContainer = styled.div`
@@ -52,6 +53,7 @@ function UserFavorites(){
 
     useEffect(()=>{
         getFavorites()
+        dispatch(resetSneakerInfo())
 
     }, [dispatch])
 
