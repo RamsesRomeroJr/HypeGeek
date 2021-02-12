@@ -5,7 +5,8 @@ import styled from "styled-components";
 import { getSneakerInfo } from '../../store/sneaker'
 import Sneaker from './sneaker.js'
 import Pricing from './pricing.js'
-import LineChart from '../LineChart'
+import LineChart from '../LineChart/index.js'
+import DataTable from '../LineChart/dataTable.js'
 
 const ChartContainer = styled.div`
     box-sizing:border-box;
@@ -75,6 +76,7 @@ function SneakerInfo(){
             {sneakerInfo && (
             <ChartContainer>
                 <LineChart style={{height:'auto', width:'1000px'}}/>
+                <DataTable />
             </ChartContainer>
             )}
         </div>

@@ -29,7 +29,13 @@ const FlightLogo = styled.img`
     height:15px;
 `
 
-function dataTable(){
+const LowestTitle = styled.h3`
+    font-family: 'Staatliches', cursive;
+    font-size:15px;
+    margin:0%;
+`
+
+function DataTable(){
     const dataInfo = useSelector((state)=> state.data.data)
     const links = useSelector((state)=> state.sneaker.sneakerInfo.resellLinks);
 
@@ -64,12 +70,14 @@ function dataTable(){
         })
     }
 
+    const classes = useStyles()
 
     return(
         <TableContainer component={Paper} className='tableContainer'>
             <Table className={classes.table} aria-label="simple table">
                 <TableHead>
                     <TableRow>
+                        <TableCell>Dates:</TableCell>
                         {dates.map((date, i)=>{
                             if(!date){
                                 return <TableCell key={i}>Not Enough Data</TableCell>
@@ -81,13 +89,65 @@ function dataTable(){
                 <TableBody>
                     <TableRow>
                         <TableCell align='left'>
-                            <h3> Lowest Price </h3>
+                            <LowestTitle>Lowest Price</LowestTitle>
                         </TableCell>
                         {lowestPrice.map((price, i)=>{
                             if(!price){
+                                return <TableCell key={i} style={{color:'green'}}>$-</TableCell>
+                            }
+                            return <TableCell key={i} style={{color:'green'}}>${price}</TableCell>
+                        })}
+                    </TableRow>
+                    <TableRow>
+                        <TableCell align="left">
+                            <a href={links.stockX} target="_blank">
+                            <Logo src={stockXLogo}/>
+                            </a>
+                        </TableCell>
+                        {stockXLowest.map((price, i)=>{
+                            if(!price){
                                 return <TableCell key={i}>$-</TableCell>
                             }
-                            return <TableCell key={i}>${price}</TableCell>
+                            return <TableCell key={i} >${price}</TableCell>
+                        })}
+                    </TableRow>
+                    <TableRow>
+                        <TableCell align="left">
+                            <a href={links.goat} target="_blank">
+                                <Logo src={goatLogo}/>
+                            </a>
+                        </TableCell>
+                        {goatLowest.map((price, i)=>{
+                            if(!price){
+                                return <TableCell key={i} style={{color:'green'}}>$-</TableCell>
+                            }
+                            return <TableCell key={i} style={{color:'green'}}>${price}</TableCell>
+                        })}
+                    </TableRow>
+                    <TableRow>
+                        <TableCell align="left">
+                            <a href={links.flightClub} target="_blank">
+                                <FlightLogo src={flightClubLogo}/>
+                            </a>
+                        </TableCell>
+                        {flightClubLowest.map((price, i)=>{
+                            if(!price){
+                                return <TableCell key={i}>$-</TableCell>
+                            }
+                            return <TableCell key={i} >${price}</TableCell>
+                        })}
+                    </TableRow>
+                    <TableRow>
+                        <TableCell align="left">
+                            <a href={links.stadiumGoods} target="_blank">
+                                <Logo src={stadiumGoodsLogo}/>
+                            </a>
+                        </TableCell>
+                        {stadiumGoodsLowest.map((price, i)=>{
+                            if(!price){
+                                return <TableCell key={i} style={{color:'green'}}>$-</TableCell>
+                            }
+                            return <TableCell key={i} style={{color:'green'}}>${price}</TableCell>
                         })}
                     </TableRow>
                 </TableBody>
@@ -97,4 +157,4 @@ function dataTable(){
 
 }
 
-export default dataTable;
+export default DataTable;
