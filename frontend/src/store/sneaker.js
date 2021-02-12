@@ -29,6 +29,10 @@ export const getSneakerInfo = (styleId) => async(dispatch) => {
     // return res;
 }
 
+export const resetSneakerInfo = () => async(dispatch) => {
+    dispatch(setSneaker(null))
+}
+
 const initialState = {sneakerInfo: null};
 
 function reducer(state=initialState, action){
