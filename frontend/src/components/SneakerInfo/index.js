@@ -25,23 +25,11 @@ const SneakerInfoContainer = styled.div`
     overflow:hidden;
 `
 
-// const myHeaders = new Headers({
-//     "Content-Type": "application/json",
-//     Accept: "application/json"
-//   });
 
 function SneakerInfo(){
 
     const {styleId} = useParams();
 
-    // fetch("https://sneaks-api.azurewebsites.net/id/" + styleId + '/prices', {
-    //       headers: myHeaders,
-    //     })
-    //     .then(response => response.json())
-    //     .then(jsonResponse => {
-    //       console.log(jsonResponse);
-
-    //     });
 
 
 
