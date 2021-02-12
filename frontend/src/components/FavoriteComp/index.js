@@ -13,10 +13,16 @@ function FavoriteComp({sneakerInfo, Favorite}){
 
     const history = useHistory();
     const user = useSelector((state) => state.session.user)
-    if(!user){
+
+    if(user === null){
         history.push(`/`)
     }
-    const userId = useSelector((state)=>state.session.user.id)
+
+    let userId;
+    if (user !== null){
+        userId = user.id
+    }
+
     const thumbnail = sneakerInfo.thumbnail
     const {
         shoeName,
