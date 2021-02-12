@@ -12,7 +12,7 @@ const LineChart = () => {
     const flightClubLowest = [];
     const stadiumGoodsLowest = [];
 
-    if(dataInfo.length){
+    if(dataInfo != null){
         dataInfo.map( data => {
             dates.push(data.createdAt)
 
