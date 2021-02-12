@@ -1,6 +1,13 @@
 import React from 'react';
 import {useSelector} from 'react-redux';
 import {Line} from 'react-chartjs-2'
+import styled from 'styled-components'
+
+
+const LineGraphContainer = styled.div`
+    width: 100%;
+    overflow-x: scroll;
+`
 
 const LineChart = () => {
     const dataInfo = useSelector((state)=> state.data.data)
@@ -17,7 +24,7 @@ const LineChart = () => {
             const dateString = `${data.createdAt}`
 
             const formatDate = (dateString) =>{
-                const options = {year: "numeric", month: "long", day: "numeric", hour: "numeric", minute:"numeric"}
+                const options = {year: "numeric", month: "numeric", day: "numeric", hour: "numeric", minute:"numeric"}
                 return new Date(dateString).toLocaleDateString(undefined, options)
             }
             dates.push(formatDate(dateString))
@@ -31,7 +38,7 @@ const LineChart = () => {
     }
 
     return(
-        <div>
+        <LineGraphContainer>
             <Line
             data={{
                 labels: [ ...dates],
@@ -69,13 +76,22 @@ const LineChart = () => {
                     },
                 ]
             }}
-            height={350}
-            width={500}
-            options={{
+            height={650}
+            width={900}
+            options={
+                {
                 maintainAspectRatio:false
-            }}
+            },
+            {
+                scales:{
+                    xAxes: [{
+
+                    }]
+                }
+            }
+        }
             />
-        </div>
+        </LineGraphContainer>
     )
 }
 
