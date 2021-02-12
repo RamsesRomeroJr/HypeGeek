@@ -42,19 +42,21 @@ function FavoriteComp({sneakerInfo, Favorite}){
         return setFavorited(false)
     }
 
-    useEffect(()=>{
-        getFavorites()
-
-    }, [dispatch])
-
     function favoriting (){
         dispatch(createFavorite({shoeName,thumbnail,retailPrice,styleID,userId}))
-        getFavorites()
+        setTimeout(()=> { getFavorites() }, 500)
+        // getFavorites()
     }
     function unfavoriting (){
         dispatch(unfavorite({styleID, userId}))
-        getFavorites()
+        setTimeout(()=> { getFavorites() }, 500)
+
     }
+
+    useEffect(()=>{
+        getFavorites()
+
+    }, [dispatch, favoriting, unfavoriting])
 
     return(
         <div>
