@@ -18,22 +18,28 @@ const LineChart = () => {
     const goatLowest = [];
     const flightClubLowest = [];
     const stadiumGoodsLowest = [];
+    let change = 0;
 
     if(dataInfo != null){
         dataInfo.map( data => {
-            const dateString = `${data.createdAt}`
+            if(change > data.lowestPrice || change < data.lowestPrice){
+                const dateString = `${data.createdAt}`
 
-            const formatDate = (dateString) =>{
-                const options = {year: "numeric", month: "numeric", day: "numeric", hour: "numeric", minute:"numeric"}
-                return new Date(dateString).toLocaleDateString(undefined, options)
+                const formatDate = (dateString) =>{
+                    const options = {year: "numeric", month: "numeric", day: "numeric", hour: "numeric", minute:"numeric"}
+                    return new Date(dateString).toLocaleDateString(undefined, options)
+                }
+                dates.push(formatDate(dateString))
+
+                lowestPrice.push(data.lowestPrice)
+                stockXLowest.push(data.stockxLow)
+                goatLowest.push(data.goatLow)
+                flightClubLowest.push(data.flightClubLow)
+                stadiumGoodsLowest.push(data.stadiumGoodsLow)
             }
-            dates.push(formatDate(dateString))
 
-            lowestPrice.push(data.lowestPrice)
-            stockXLowest.push(data.stockxLow)
-            goatLowest.push(data.goatLow)
-            flightClubLowest.push(data.flightClubLow)
-            stadiumGoodsLowest.push(data.stadiumGoodsLow)
+
+            change = data.lowestPrice
         })
     }
 
@@ -76,7 +82,7 @@ const LineChart = () => {
                     },
                 ]
             }}
-            height={650}
+            height={450}
             width={900}
             options={
                 {

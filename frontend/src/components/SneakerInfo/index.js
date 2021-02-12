@@ -10,7 +10,7 @@ import LineChart from '../LineChart'
 const ChartContainer = styled.div`
     box-sizing:border-box;
     display: grid;
-    grid-template-columns: 2fr;
+    grid-template-columns: 1fr 1fr;
     justify-content: center;
     grid-auto-rows: auto;
     grid-gap: 15px;
@@ -74,7 +74,7 @@ function SneakerInfo(){
             {!sneakerInfo && <h4>Loading Graph...</h4>}
             {sneakerInfo && (
             <ChartContainer>
-                <LineChart style={{height:'auto', width:'100%'}}/>
+                <LineChart style={{height:'auto', width:'1000px'}}/>
             </ChartContainer>
             )}
         </div>
