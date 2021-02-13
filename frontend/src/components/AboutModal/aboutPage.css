@@ -3,14 +3,18 @@
 }
 
 .aboutContainer{
-    height: 600px;
+    height: 200px;
     width: 600px;
     display: flex;
-    justify-content: center;
+    /* justify-content: center; */
+    align-content: center;
+    flex-direction: column;
 }
 
 .social-links {
 	display: flex;
+    align-content: center;
+    justify-content: center;
 }
 
 .social-btn {
@@ -24,7 +28,7 @@
 	border-radius: 10px;
 	box-shadow: 0px 10px 10px rgba(0,0,0,0.1);
 	background: white;
-	margin: 50px;
+	margin: 0 50px;
 	transition: 1s;
 }
 
