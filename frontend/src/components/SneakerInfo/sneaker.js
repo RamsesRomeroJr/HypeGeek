@@ -31,7 +31,15 @@ function Sneaker({sneakerInfo}){
     const dispatch = useDispatch()
 
     const user = useSelector((state) => state.session.user)
-    const userId = user.id
+
+    if(user === null){
+        history.push(`/`)
+    }
+
+    let userId;
+    if (user !== null){
+        userId = user.id
+    }
 
     async function getFavorites(){
         let res = await fetch(`/api/sneaker/userFav/${userId}`)
@@ -51,6 +59,11 @@ function Sneaker({sneakerInfo}){
     const styleId = sneakerInfo.styleID
 
     useEffect(()=>{
+
+        if(user === null){
+            history.push(`/`)
+        }
+
         getFavorites()
         dispatch(saveData({
             styleId,
@@ -63,10 +76,6 @@ function Sneaker({sneakerInfo}){
         }))
         // dispatch(userFav(fav))
     }, [dispatch])
-
-    if(!user){
-        history.push(`/`)
-    }
 
 
 

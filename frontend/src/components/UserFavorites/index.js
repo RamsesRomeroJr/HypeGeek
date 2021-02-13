@@ -37,12 +37,14 @@ function UserFavorites(){
     const history = useHistory();
     const user = useSelector((state) => state.session.user)
 
-    if(!user){
-        console.log(user)
+    if(user === null){
         history.push(`/`)
     }
 
-    const userId = useSelector((state)=>state.session.user.id)
+    let userId;
+    if (user !== null){
+        userId = user.id
+    }
 
     async function getFavorites(){
         let res = await fetch(`/api/sneaker/userFav/${userId}`)
