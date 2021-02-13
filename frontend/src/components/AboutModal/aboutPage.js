@@ -12,10 +12,10 @@ function AboutPage (){
 
                 </div>
                 <div className='social-btn flex-center' id='linkedin'>
-
+                    <FaLinkedinIn className='linked' />
                 </div>
                 <div className='social-btn flex-center' id='github'>
-
+                    <FaGithub className='git' />
                 </div>
             </div>
         </div>
