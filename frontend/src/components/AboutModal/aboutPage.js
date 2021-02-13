@@ -8,14 +8,20 @@ function AboutPage (){
         <div className='aboutContainer'>
             <div className='social-links'>
                 <div className='social-btn flex-center' id='angelList'>
-                    <FaAngellist className='angel' />
+                    <a href='https://angel.co/u/ramses-romero-jr' target='__blank' style={{color:'#333'}}>
+                        <FaAngellist className='angel' />
+                    </a>
 
                 </div>
                 <div className='social-btn flex-center' id='linkedin'>
-                    <FaLinkedinIn className='linked' />
+                    <a href='https://www.linkedin.com/in/ramses-romero-jr/' target='__blank' style={{color:'#333'}}>
+                        <FaLinkedinIn className='linked' />
+                    </a>
                 </div>
                 <div className='social-btn flex-center' id='github'>
-                    <FaGithub className='git' />
+                    <a href='https://github.com/RamsesRomeroJr' target='__blank' style={{color:'#333'}}>
+                        <FaGithub className='git' />
+                    </a>
                 </div>
             </div>
         </div>
