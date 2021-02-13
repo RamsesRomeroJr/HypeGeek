@@ -22,6 +22,18 @@ const LoginButton = styled.button`
   }
 `;
 
+const Doc = styled.a`
+  text-decoration:none;
+  color:grey;
+  font-family: 'Staatliches', cursive;
+  font-weight:3;
+
+  &:hover{
+    color:green;
+    font-size:20px;
+  }
+`
+
 function Navigation({ isLoaded }){
   const sessionUser = useSelector(state => state.session.user);
 
@@ -48,6 +60,7 @@ function Navigation({ isLoaded }){
       <div className="searchBar">
         <Search/>
       </div>
+      <Doc href='https://github.com/RamsesRomeroJr/HypeGeek' target="_blank">Doc</Doc>
       <div className="login-button">
         {isLoaded && sessionLinks}
       </div>
