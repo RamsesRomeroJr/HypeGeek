@@ -48,37 +48,55 @@ function Pricing ({sneakerInfo}){
         return prices;
     }
 
-    if(resellPrices.stockX) {stockXPrices = priceArrayCreator(resellPrices.stockX)};
-    if(!resellPrices.stockX) {
+    if(resellPrices === undefined){
         for(let i=4; i<15; i+=0.5){
             stockXPrices.push(0)
         }
-
-    };
-
-    if(resellPrices.goat) {goatPrices = priceArrayCreator(resellPrices.goat)};
-    if(!resellPrices.goat) {
         for(let i=4; i<15; i+=0.5){
             goatPrices.push(0)
         }
-
-    };
-
-    if(resellPrices.flightClub) {flightClubPrices = priceArrayCreator(resellPrices.flightClub)};
-    if(!resellPrices.flightClub) {
         for(let i=4; i<15; i+=0.5){
             flightClubPrices.push(0)
         }
-
-    };
-
-    if(resellPrices.stadiumGoods) {stadiumGoodsPrices = priceArrayCreator(resellPrices.stadiumGoods)};
-    if(!resellPrices.stadiumGoods) {
         for(let i=4; i<15; i+=0.5){
             stadiumGoodsPrices.push(0)
         }
+    }
+    else{
 
-    };
+        if(resellPrices.stockX) {stockXPrices = priceArrayCreator(resellPrices.stockX)};
+        if(!resellPrices.stockX) {
+            for(let i=4; i<15; i+=0.5){
+                stockXPrices.push(0)
+            }
+
+        };
+
+        if(resellPrices.goat) {goatPrices = priceArrayCreator(resellPrices.goat)};
+        if(!resellPrices.goat) {
+            for(let i=4; i<15; i+=0.5){
+                goatPrices.push(0)
+            }
+
+        };
+
+        if(resellPrices.flightClub) {flightClubPrices = priceArrayCreator(resellPrices.flightClub)};
+        if(!resellPrices.flightClub) {
+            for(let i=4; i<15; i+=0.5){
+                flightClubPrices.push(0)
+            }
+
+        };
+        if(resellPrices.stadiumGoods) {stadiumGoodsPrices = priceArrayCreator(resellPrices.stadiumGoods)};
+        if(!resellPrices.stadiumGoods) {
+            for(let i=4; i<15; i+=0.5){
+                stadiumGoodsPrices.push(0)
+            }
+
+        };
+    }
+
+
 
     const classes = useStyles()
 
