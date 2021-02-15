@@ -140,7 +140,7 @@ To get started follow the following steps
 <!-- ROADMAP -->
 ## Roadmap
 
-See the [open issues](https://github.com/othneildrew/Best-README-Template/issues) for a list of proposed features (and known issues).
+For all planning done before hand check it out [here](https://github.com/RamsesRomeroJr/HypeGeek/wiki)
 
 
 <!-- CONTACT -->
