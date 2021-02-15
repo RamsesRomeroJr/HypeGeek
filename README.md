@@ -62,10 +62,8 @@ Through HypeGeek sneaker heads can find the cheapest price on a particular size 
     </li>
     <li><a href="#usage">Usage</a></li>
     <li><a href="#roadmap">Roadmap</a></li>
-    <li><a href="#contributing">Contributing</a></li>
-    <li><a href="#license">License</a></li>
     <li><a href="#contact">Contact</a></li>
-    <li><a href="#acknowledgements">Acknowledgements</a></li>
+    
   </ol>
 </details>
 
@@ -149,6 +147,7 @@ See the [open issues](https://github.com/othneildrew/Best-README-Template/issues
 ## Contact
 
 [Email](ramses.romero.jr@gmail.com)
+
 [LinkedIn](https://www.linkedin.com/in/ramses-romero-jr/)
 
 Project Link: [https://github.com/RamsesRomeroJr/HypeGeek](https://github.com/RamsesRomeroJr/HypeGeek)
