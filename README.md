@@ -150,6 +150,10 @@ For all planning done before hand check it out [here](https://github.com/RamsesR
 
 [LinkedIn](https://www.linkedin.com/in/ramses-romero-jr/)
 
+[AngelList](https://angel.co/u/ramses-romero-jr)
+
+[GitHub](https://github.com/RamsesRomeroJr)
+
 Project Link: [https://github.com/RamsesRomeroJr/HypeGeek](https://github.com/RamsesRomeroJr/HypeGeek)
 
 [linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
