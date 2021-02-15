@@ -134,27 +134,23 @@ To get started follow the following steps
 
 ### Some of the features that you can use with this website
 - Being able to sign-up/login/demo login
--gif-
+<img src="https://raw.githubusercontent.com/RamsesRomeroJr/HypeGeek/main/Snippets/HypeGeek-signup-login.gif" />
 
 
 - Being able to see what shoes are trending on stockX
--gif-
+<img src="https://raw.githubusercontent.com/RamsesRomeroJr/HypeGeek/main/Snippets/HypeGeek-Trending.gif" />
 
 - Being able to search for shoes
--gif-
+<img src="https://raw.githubusercontent.com/RamsesRomeroJr/HypeGeek/main/Snippets/HypeGeek-Search.gif" />
 
-- Being able to see more information like prices per size
-- gif- 
+- Being able to see more information like prices per size/ image slider
+<img src="https://raw.githubusercontent.com/RamsesRomeroJr/HypeGeek/main/Snippets/HypeGeek-Prices%26Slider.gif" />
 
 - Being able to see the price changes over time on a line graph with a line for each site
--gif -
+<img src="https://raw.githubusercontent.com/RamsesRomeroJr/HypeGeek/main/Snippets/HypeGeek-Graph.gif" />
 
 - Being able to favorite and unfavorite shoes
--gif- 
-
-- Being able to search for shoes
-- gif-
-
+<img src="https://raw.githubusercontent.com/RamsesRomeroJr/HypeGeek/main/Snippets/HypeGeek-Favoriting.gif" />
 
 <!-- ROADMAP -->
 ## Roadmap
