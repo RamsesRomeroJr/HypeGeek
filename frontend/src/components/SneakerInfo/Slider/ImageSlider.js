@@ -17,9 +17,11 @@ const Image = styled.img`
     border-radius:10px;
 `
 
-const ImageSlider = ({images}) => {
+const ImageSlider = ({images, sneakerInfo}) => {
     const [current, setCurrent] = useState(0)
     const length = images.length
+
+    console.log(length)
 
     const nextSlide = () =>{
         setCurrent( current === length - 1 ? 0 : current + 1)
@@ -33,6 +35,8 @@ const ImageSlider = ({images}) => {
         return null;
     }
     return(
+        <>
+        {!length && <Image src={sneakerInfo.thumbnail} />}
         <Slider>
             <IoIosArrowBack className='left-arrow' onClick={prevSlide}/>
             <IoIosArrowForward className='right-arrow' onClick={nextSlide}/>
@@ -46,6 +50,7 @@ const ImageSlider = ({images}) => {
                 )
             })}
         </Slider>
+        </>
     )
 }
 

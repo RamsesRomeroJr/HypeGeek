@@ -26,6 +26,12 @@ const SneakerImages = styled.img`
     left:10000px;
 `
 
+const Image = styled.img`
+    /* width: 100px; */
+    height:300px;
+    border-radius:10px;
+`
+
 function Sneaker({sneakerInfo}){
     const history = useHistory();
     const dispatch = useDispatch()
@@ -87,7 +93,8 @@ function Sneaker({sneakerInfo}){
                 {sneakerName}
             </SneakerName>
             <FavoriteComp sneakerInfo={sneakerInfo}/>
-            <ImageSlider images={images} />
+            {!images.length && <Image src={sneakerInfo.thumbnail} />}
+            <ImageSlider images={images} sneakerInfo={sneakerInfo} />
         </SneakerContainer>
     )
 }
