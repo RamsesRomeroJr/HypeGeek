@@ -33,7 +33,7 @@ Through HypeGeek sneaker heads can find the cheapest price on a particular size 
     <a href="https://github.com/RamsesRomeroJr/HypeGeek"><strong>Explore the docs »</strong></a>
     <br />
     <br />
-    <a href="https://hypegeek.herokuapp.com/">View Live</a>
+    <a href="https://hypegeek.herokuapp.com/" target="_blank" >View Live</a>
     ·
     <a href="https://github.com/RamsesRomeroJr/HypeGeek/issues">Report Bug</a>
     ·
