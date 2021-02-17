@@ -1,104 +1,34 @@
-import React, {useState, useEffect} from "react";
-import { useSelector } from "react-redux";
-import { useHistory } from "react-router-dom";
-import styled from 'styled-components'
-import {RiArrowUpSFill, RiArrowDownSFill} from 'react-icons/ri'
+import React, { useState} from 'react';
+import { Modal } from '../../context/Modal';
+import Description from './descriptionPage.js';
+import styled from 'styled-components';
 
-const DesButton = styled.button`
-    width:75px;
-    height: 35px;
-    margin-bottom:4px;
-    margin-top:4px;
-    border:solid 1px lightgrey;
-    background-color:#FCFAF0;
-    color:grey;
-    border:solid 0.5px lightgrey;
-    box-shadow: 0 1px 2px 0px rgba(0,0,0,0.6);
-    outline:none;
-    &:hover{
-        color:green;
-        border:solid 0.5px lightgrey;
-        box-shadow: 0 3px 9px 0px rgba(0,128,0,0.6);
-    }
-`;
+const AboutButton = styled.button`
+text-decoration:none;
+  color:grey;
+  font-family: 'Staatliches', cursive;
+  font-weight:3;
+  cursor:pointer;
 
-const Info = styled.div`
-    height: 40px;
-    list-style-type: none;
-    font-family: 'Staatliches', cursive;
-    font-weight:3;
+  &:hover{
+    color:green;
+  }
 `
 
-function Description({sneakerInfo}){
-    const history = useHistory();
-    const [showMenu, setShowMenu] = useState(false);
+function DescriptionModal ({sneakerInfo}){
+    const [showModal, setShowModal] = useState(false);
 
-
-    const user = useSelector((state)=>state.session.user)
-
-    if(!user){
-        history.push(`/`)
-    }
-    const {
-        stockX,
-        flightClub,
-        goat,
-        stadiumGoods
-    } = sneakerInfo.lowestResellPrice
-
-    const lowestPrice = Math.min(stockX, flightClub, goat, stadiumGoods)
-
-    const retailPrice = sneakerInfo.retailPrice
-    const priceChange =  lowestPrice - retailPrice
-    const positiveChange = priceChange > 0
-
-    const openMenu = () => {
-        if (showMenu) return;
-        setShowMenu(true);
-      };
-
-    useEffect(() => {
-    if (!showMenu) return;
-
-    const closeMenu = () => {
-        setShowMenu(false);
-    };
-
-    document.addEventListener('click', closeMenu);
-
-    return () => document.removeEventListener("click", closeMenu);
-    }, [showMenu]);
-
-
-
-    return(
+    return (
         <>
-        <DesButton onClick={openMenu}>
-            More Info
-        </DesButton>
-        {showMenu && (
-            <Info>
-                <span style={{paddingRight:'25px'}}>Retail Price:</span>
-                <span>${retailPrice}</span>
-                {!positiveChange && (
-                    <div>
-                    <span>Price Change: </span>
-                    <RiArrowDownSFill style={{color:'red'}} />
-                    <span style={{color:'red'}}>${priceChange}</span>
-                    </div>
-                )}
-                {positiveChange && (
-                    <div>
-                    <span>Price Change: </span>
-                    <RiArrowUpSFill style={{color:'green'}} />
-                    <span style={{color:'green'}}>${priceChange}</span>
-                    </div>
-                )}
-            </Info>
+        <AboutButton onClick={()=> setShowModal(true)}>More Info</AboutButton>
+        {showModal && (
+            <Modal onClose={() => setShowModal(false)}>
+                <Description sneakerInfo={sneakerInfo}/>
+            </Modal>
         )}
 
         </>
     )
 }
 
-export default Description;
+export default DescriptionModal;
