@@ -68,11 +68,13 @@ function Navigation({ isLoaded }){
           <img src={logo} className="logo"/>
         </NavLink>
       </div>
+      <Tabs>
+        <AboutModal />
+      </Tabs>
       <div className="searchBar">
         <Search/>
       </div>
       <Tabs>
-        <AboutModal />
         <Doc href='https://github.com/RamsesRomeroJr/HypeGeek' target="_blank">Doc</Doc>
       </Tabs>
       <div className="login-button">

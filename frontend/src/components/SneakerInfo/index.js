@@ -7,6 +7,7 @@ import Sneaker from './sneaker.js'
 import Pricing from './pricing.js'
 import LineChart from '../LineChart/index.js'
 import DataTable from '../LineChart/dataTable.js'
+import Description from '../Description/index.js'
 
 const ChartContainer = styled.div`
     box-sizing:border-box;
@@ -28,10 +29,10 @@ const ChartContainer = styled.div`
 const SneakerInfoContainer = styled.div`
     box-sizing:border-box;
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 2fr 1fr 2fr;
     justify-content: center;
     grid-auto-rows: auto;
-    grid-gap: 150px;
+    /* grid-gap: 150px; */
     width: 85%;
     margin: 0 auto;
     /* padding-top: 15px;
@@ -41,7 +42,10 @@ const SneakerInfoContainer = styled.div`
     box-shadow: 0 1px 5px 0px rgba(0,0,0,0.6);
     background-color: white;
     overflow:hidden;
+`
 
+const InfoContainer = styled.div`
+    margin-top:30px;
 `
 
 
@@ -69,6 +73,9 @@ function SneakerInfo(){
             {sneakerInfo && (
             <SneakerInfoContainer>
                 <Sneaker sneakerInfo={sneakerInfo}/>
+                <InfoContainer>
+                    <Description sneakerInfo={sneakerInfo}/>
+                </InfoContainer>
                 <Pricing sneakerInfo={sneakerInfo}/>
             </SneakerInfoContainer>
             )}
