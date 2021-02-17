@@ -5,6 +5,7 @@ import { getPopularShoes } from '../../store/home'
 import { useHistory } from "react-router-dom";
 import Shoe from './shoe.js'
 import {resetSneakerInfo} from "../../store/sneaker"
+import {resetSearchResults} from "../../store/searchResults"
 
 const ShoesContainer = styled.div`
     box-sizing:border-box;
@@ -37,6 +38,7 @@ function HomePage() {
     useEffect(() => {
         dispatch(getPopularShoes())
         dispatch(resetSneakerInfo())
+        dispatch(resetSearchResults())
     },[dispatch])
 
     const allShoes = useSelector((state) => state.home.products)

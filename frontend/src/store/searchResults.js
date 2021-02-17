@@ -14,6 +14,10 @@ export const getSearchResults = (search) => async(dispatch)=>{
     return res;
 }
 
+export const resetSearchResults =() => async(dispatch) => {
+    dispatch(setSearch(null))
+}
+
 const initialState = {results: null};
 
 function reducer(state=initialState, action){
