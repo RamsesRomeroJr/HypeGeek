@@ -37,7 +37,7 @@ const Doc = styled.a`
   font-weight:3;
   cursor:pointer;
   align-self: center;
-  padding-left: 50px;
+  padding-right: 65px;
   font-size:20px;
   &:hover{
     color:green;

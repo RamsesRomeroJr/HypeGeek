@@ -13,6 +13,7 @@ const Input = styled.input`
     border:0.5px solid grey;
     outline:none;
 
+
     &::-webkit-input-placeholder{
         color:grey;
         font-family: 'Staatliches', cursive;
