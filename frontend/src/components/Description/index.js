@@ -50,6 +50,7 @@ function Description({sneakerInfo}){
 
     const retailPrice = sneakerInfo.retailPrice
     const priceChange =  lowestPrice - retailPrice
+    const positiveChange = priceChange > 0
 
     const openMenu = () => {
         if (showMenu) return;
@@ -77,7 +78,22 @@ function Description({sneakerInfo}){
         </DesButton>
         {showMenu && (
             <Info>
-                <div>${priceChange}</div>
+                <span style={{paddingRight:'25px'}}>Retail Price:</span>
+                <span>${retailPrice}</span>
+                {!positiveChange && (
+                    <div>
+                    <span>Price Change: </span>
+                    <RiArrowDownSFill style={{color:'red'}} />
+                    <span style={{color:'red'}}>${priceChange}</span>
+                    </div>
+                )}
+                {positiveChange && (
+                    <div>
+                    <span>Price Change: </span>
+                    <RiArrowUpSFill style={{color:'green'}} />
+                    <span style={{color:'green'}}>${priceChange}</span>
+                    </div>
+                )}
             </Info>
         )}
 
