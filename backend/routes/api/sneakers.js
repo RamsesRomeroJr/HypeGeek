@@ -4,7 +4,7 @@ const SneaksAPI = require('../../sneaks-api')
 const sneaks = new SneaksAPI();
 const fetch = require('node-fetch');
 
-const { User, StoreData, FavShoe } = require('../../db/models')
+const { User, StoreData, FavShoe, HomeData } = require('../../db/models')
 
 const router = express.Router();
 
@@ -14,19 +14,25 @@ router.get('/home', asyncHandler(async(req,res) =>{
             products
         })
     })
-    return  res.json({products: [
-        {
-            styleID: '555088-105',
-            shoeName: 'Jordan 1 Retro High Dark Mocha',
+
+    const HomeDataArray = [];
+    const HomeDatas = await HomeData.findAll()
+    for(let i=0; i < HomeDatas.length; i++){
+        HomeDataArray.push({
+            styleID: HomeDatas[i].styleID,
+            shoeName: HomeDatas[i].shoeName,
             lowestResellPrice: {
-                stockX: 327,
-                goat: 400,
-                flightClub:399,
-                stadiumGoods: 415
+                stockX: HomeDatas[i].stockXLow,
+                stockX: HomeDatas[i].goatLow,
+                stockX: HomeDatas[i].flightClubLow,
+                stockX: HomeDatas[i].stadiumGoodsLow,
             },
-            thumbnail: 'https://stockx-360.imgix.net/Air-Jordan-1-Retro-High-Dark-Mocha/Images/Air-Jordan-1-Retro-High-Dark-Mocha/Lv2/img01.jpg?auto=format,compress&w=559&q=90&dpr=2&updated_at=1608736454'
-        },
-    ]})
+            thumbnail: HomeDatas[i].thumbnail
+        })
+    }
+
+    // console.log(HomeDataArray)
+    return  res.json({products: HomeDataArray})
 }))
 
 
