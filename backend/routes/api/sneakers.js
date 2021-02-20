@@ -23,9 +23,9 @@ router.get('/home', asyncHandler(async(req,res) =>{
             shoeName: HomeDatas[i].shoeName,
             lowestResellPrice: {
                 stockX: HomeDatas[i].stockXLow,
-                stockX: HomeDatas[i].goatLow,
-                stockX: HomeDatas[i].flightClubLow,
-                stockX: HomeDatas[i].stadiumGoodsLow,
+                goatLow: HomeDatas[i].goatLow,
+                flightClubLow: HomeDatas[i].flightClubLow,
+                stadiumGoodsLow: HomeDatas[i].stadiumGoodsLow,
             },
             thumbnail: HomeDatas[i].thumbnail
         })
