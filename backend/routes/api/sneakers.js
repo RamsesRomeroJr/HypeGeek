@@ -14,6 +14,19 @@ router.get('/home', asyncHandler(async(req,res) =>{
             products
         })
     })
+    return  res.json({products: [
+        {
+            styleID: '555088-105',
+            shoeName: 'Jordan 1 Retro High Dark Mocha',
+            lowestResellPrice: {
+                stockX: 327,
+                goat: 400,
+                flightClub:399,
+                stadiumGoods: 415
+            },
+            thumbnail: 'https://stockx-360.imgix.net/Air-Jordan-1-Retro-High-Dark-Mocha/Images/Air-Jordan-1-Retro-High-Dark-Mocha/Lv2/img01.jpg?auto=format,compress&w=559&q=90&dpr=2&updated_at=1608736454'
+        },
+    ]})
 }))
 
 

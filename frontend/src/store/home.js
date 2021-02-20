@@ -10,7 +10,7 @@ const setShoes = (shoes) => ({
 
 export const getPopularShoes = () => async(dispatch) => {
     const res = await fetch('/api/sneaker/home');
-
+    console.log(res.data)
     dispatch(setShoes(res.data.products));
     return res;
 }
