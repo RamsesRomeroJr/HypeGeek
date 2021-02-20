@@ -3,6 +3,7 @@ const asyncHandler = require('express-async-handler');
 const SneaksAPI = require('../../sneaks-api')
 const sneaks = new SneaksAPI();
 const fetch = require('node-fetch');
+const { Op } = require("sequelize");
 
 const { User, StoreData, FavShoe, HomeData } = require('../../db/models')
 
@@ -46,6 +47,28 @@ router.get('/search/:sneaker', asyncHandler(async(req,res)=>{
             })
         }
     })
+
+    const searchedResults = [];
+    const searched = await HomeData.findAll({where:
+        {shoeName: {
+            [Op.iLike]: `%${sneakerName}%`
+        }}})
+
+
+    for(let i=0; i < searched.length; i++){
+        searchedResults.push({
+            styleID: searched[i].styleID,
+            shoeName: searched[i].shoeName,
+            lowestResellPrice: {
+                stockX: searched[i].stockXLow,
+                goatLow: searched[i].goatLow,
+                flightClubLow: searched[i].flightClubLow,
+                stadiumGoodsLow: searched[i].stadiumGoodsLow,
+            },
+            thumbnail: searched[i].thumbnail
+        })
+    }
+    return  res.json({products: searchedResults})
 }))
 
 router.get('/info/:styleID', asyncHandler(async(req,res)=>{
