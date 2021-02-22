@@ -35,6 +35,18 @@ module.exports = {
       stadiumGoodsLink: {
         type: Sequelize.STRING
       },
+      linkImage1: {
+        type: Sequelize.STRING
+      },
+      linkImage2: {
+        type: Sequelize.STRING
+      },
+      linkImage3: {
+        type: Sequelize.STRING
+      },
+      linkImage4: {
+        type: Sequelize.STRING
+      },
       thumbnail: {
         type: Sequelize.STRING
       },
