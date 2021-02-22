@@ -26,7 +26,7 @@ export const getSneakerInfo = (styleId) => async(dispatch) => {
     //         dispatch(setSneaker(response.data));
 
     //     });
-    dispatch(setSneaker(res.data));
+    dispatch(setSneaker(res.data.product));
 
     return res;
 }
