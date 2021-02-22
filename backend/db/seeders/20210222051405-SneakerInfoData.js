@@ -29,7 +29,7 @@ module.exports = {
           updatedAt: new Date()
         },
         {
-          styleID: '	CJ0588-001',
+          styleID: 'CJ0588-001',
           stockXLow: 172,
           stockXLink:'https://stockx.com/nike-air-max-95-gunsmoke-pink-foam',
           goatLow: 165,

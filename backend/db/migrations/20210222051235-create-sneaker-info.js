@@ -15,40 +15,40 @@ module.exports = {
         type: Sequelize.INTEGER
       },
       stockXLink: {
-        type: Sequelize.STRING
+        type: Sequelize.STRING(1000)
       },
       goatLow: {
         type: Sequelize.INTEGER
       },
       goatLink: {
-        type: Sequelize.STRING
+        type: Sequelize.STRING(1000)
       },
       flightClubLow: {
         type: Sequelize.INTEGER
       },
       flightClubLink: {
-        type: Sequelize.STRING
+        type: Sequelize.STRING(1000)
       },
       stadiumGoodsLow: {
         type: Sequelize.INTEGER
       },
       stadiumGoodsLink: {
-        type: Sequelize.STRING
+        type: Sequelize.STRING(1000)
       },
       linkImage1: {
-        type: Sequelize.STRING
+        type: Sequelize.STRING(1000)
       },
       linkImage2: {
-        type: Sequelize.STRING
+        type: Sequelize.STRING(1000)
       },
       linkImage3: {
-        type: Sequelize.STRING
+        type: Sequelize.STRING(1000)
       },
       linkImage4: {
-        type: Sequelize.STRING
+        type: Sequelize.STRING(1000)
       },
       thumbnail: {
-        type: Sequelize.STRING
+        type: Sequelize.STRING(1000)
       },
       retailPrice: {
         type: Sequelize.INTEGER
@@ -60,7 +60,7 @@ module.exports = {
         type: Sequelize.STRING
       },
       description: {
-        type: Sequelize.STRING
+        type: Sequelize.STRING(1000)
       },
       shoeName: {
         type: Sequelize.STRING

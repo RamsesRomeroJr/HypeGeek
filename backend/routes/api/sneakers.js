@@ -105,7 +105,7 @@ router.get('/info/:styleID', asyncHandler(async(req,res)=>{
         })
     })
 
-    const sneakerInfo = await SneakerInfo.findAll({where: {styleID = styleId }})
+    const sneakerInfo = await SneakerInfo.findOne({where: {styleID: styleId }})
     return res.json({
         product: {
             lowestResellPrice: {
