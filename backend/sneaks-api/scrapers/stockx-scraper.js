@@ -4,9 +4,9 @@ const Sneaker = require('../models/Sneaker');
 
 module.exports = {
     getProductsAndInfo: async function (key, callback) {
-      
+
         try {
-            const response = await got.post('https://xw7sbct9v6-1.algolianet.com/1/indexes/products/query?x-algolia-agent=Algolia%20for%20vanilla%20JavaScript%203.32.1&x-algolia-application-id=XW7SBCT9V6&x-algolia-api-key=6bfb5abee4dcd8cea8f0ca1ca085c2b3', {
+            const response = await got.post('https://xw7sbct9v6-1.algolianet.com/1/indexes/products/query?x-algolia-agent=Algolia%20for%20vanilla%20JavaScript%203.32.1&x-algolia-application-id=XW7SBCT9V6&x-algolia-api-key=6b5e76b49705eb9f51a06d3c82f7acee', {
                 headers: {
                     'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/81.0.4044.138 Safari/537.36',
                     "accept": "application/json",
@@ -19,8 +19,8 @@ module.exports = {
                 body: '{"params":"query=' + key + '&facets=*&filters=&hitsPerPage=40"}',
                 http2: true
             });
-           
-            
+
+
             var json = JSON.parse(response.body);
             var products = [];
             var numOfShoes = json.hits.length;
@@ -51,10 +51,10 @@ module.exports = {
                 }
                 products.push(shoe)
             }
-          
+
             if (products.length == 0 || numOfShoes == 0) {
                 callback(new Error('Product Not Found'), null);
-            } 
+            }
             else {
                 callback(null, products);
             }
@@ -81,10 +81,10 @@ module.exports = {
                 var size = json.Product.children[key].shoeSize
                 if(size[size.length-1] == 'W'){
                     size = size.substring(0, size.length - 1);
-                    
+
                 }
                 priceMap[size] = json.Product.children[key].market.lowestAsk;
-                
+
             });
             shoe.resellPrices.stockX = priceMap;
             callback();

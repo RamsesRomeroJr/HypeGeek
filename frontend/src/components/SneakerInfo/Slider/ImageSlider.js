@@ -12,8 +12,9 @@ const Slider = styled.section`
 `
 
 const Image = styled.img`
-    /* width: 100px; */
-    height:175px;
+    /* backUpData Images */
+    /* height:175px; */
+    height:300px;
     border-radius:10px;
 `
 

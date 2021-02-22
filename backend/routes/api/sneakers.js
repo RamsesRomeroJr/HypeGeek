@@ -33,7 +33,7 @@ router.get('/home', asyncHandler(async(req,res) =>{
     }
 
     // console.log(HomeDataArray)
-    return  res.json({products: HomeDataArray})
+    // return  res.json({products: HomeDataArray})
 }))
 
 
@@ -68,7 +68,7 @@ router.get('/search/:sneaker', asyncHandler(async(req,res)=>{
             thumbnail: searched[i].thumbnail
         })
     }
-    return  res.json({products: searchedResults})
+    // return  res.json({products: searchedResults})
 }))
 
 router.get('/info/:styleID', asyncHandler(async(req,res)=>{
@@ -79,61 +79,61 @@ router.get('/info/:styleID', asyncHandler(async(req,res)=>{
 
     await sneaks.getProductPrices(`${styleId}`, async (err, products)=>{
         // here figure out how to save info into StoreData
-        // const {
-        //     styleID,
-        //     shoeName,
-        // } = products
-        // const {
-        //     stockX,
-        //     goat,
-        //     stadiumGoods,
-        //     flightClub
-        // } = products.lowestResellPrice
-        // let lowestPrice = Math.min(stockX,goat,stadiumGoods,flightClub)
+        const {
+            styleID,
+            shoeName,
+        } = products
+        const {
+            stockX,
+            goat,
+            stadiumGoods,
+            flightClub
+        } = products.lowestResellPrice
+        let lowestPrice = Math.min(stockX,goat,stadiumGoods,flightClub)
 
-        // await StoreData.create({styleId,
-        //     shoeName,
-        //     lowestPrice,
-        //     stockxLow:stockX,
-        //     goatLow:goat,
-        //     flightClubLow:flightClub,
-        //     stadiumGoodsLow:stadiumGoods
-        // })
+        await StoreData.create({styleId,
+            shoeName,
+            lowestPrice,
+            stockxLow:stockX,
+            goatLow:goat,
+            flightClubLow:flightClub,
+            stadiumGoodsLow:stadiumGoods
+        })
 
         return res.json({
             products
         })
     })
 
-    const sneakerInfo = await SneakerInfo.findOne({where: {styleID: styleId }})
-    return res.json({
-        product: {
-            lowestResellPrice: {
-                stockX: sneakerInfo.stockXLow,
-                goat: sneakerInfo.goatLow,
-                flightClub:sneakerInfo.flightClubLow,
-                stadiumGoods: sneakerInfo.stadiumGoodsLow
-            },
-            styleID: sneakerInfo.styleID,
-            imageLinks: [
-                sneakerInfo.linkImage1,
-                sneakerInfo.linkImage2,
-                sneakerInfo.linkImage3,
-                sneakerInfo.linkImage4,
-            ],
-            resellLinks: {
-                stockX: sneakerInfo.stockXLink,
-                goat: sneakerInfo.goatLink,
-                flightClub: sneakerInfo.flightClubLink,
-                stadiumGoods: sneakerInfo.stadiumGoodsLink
-            },
-            thumbnail: sneakerInfo.thumbnail,
-            retailPrice: sneakerInfo.retailPrice,
-            releaseDate: sneakerInfo.releaseDate,
-            colorway: sneakerInfo.colorway,
-            description: sneakerInfo.description,
-            shoeName: sneakerInfo.shoeName
-    }})
+    // const sneakerInfo = await SneakerInfo.findOne({where: {styleID: styleId }})
+    // return res.json({
+    //     product: {
+    //         lowestResellPrice: {
+    //             stockX: sneakerInfo.stockXLow,
+    //             goat: sneakerInfo.goatLow,
+    //             flightClub:sneakerInfo.flightClubLow,
+    //             stadiumGoods: sneakerInfo.stadiumGoodsLow
+    //         },
+    //         styleID: sneakerInfo.styleID,
+    //         imageLinks: [
+    //             sneakerInfo.linkImage1,
+    //             sneakerInfo.linkImage2,
+    //             sneakerInfo.linkImage3,
+    //             sneakerInfo.linkImage4,
+    //         ],
+    //         resellLinks: {
+    //             stockX: sneakerInfo.stockXLink,
+    //             goat: sneakerInfo.goatLink,
+    //             flightClub: sneakerInfo.flightClubLink,
+    //             stadiumGoods: sneakerInfo.stadiumGoodsLink
+    //         },
+    //         thumbnail: sneakerInfo.thumbnail,
+    //         retailPrice: sneakerInfo.retailPrice,
+    //         releaseDate: sneakerInfo.releaseDate,
+    //         colorway: sneakerInfo.colorway,
+    //         description: sneakerInfo.description,
+    //         shoeName: sneakerInfo.shoeName
+    // }})
 }))
 
 router.post('/favorite/:styleID', asyncHandler(async(req,res)=>{
