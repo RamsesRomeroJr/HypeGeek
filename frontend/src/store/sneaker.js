@@ -13,19 +13,21 @@ export const getSneakerInfo = (styleId) => async(dispatch) => {
         Accept: "application/json"
       });
 
+
+
+      //new fetch
+      // fetch("https://sneaks-api.azurewebsites.net/id/" + styleId + '/prices', {
+          //       headers: myHeaders,
+          //     })
+          //     .then(response => {
+              //         console.log(response);
+              //         dispatch(setSneaker(response.data));
+
+              //     });
+
     //Old fetch to back end library
     const res = await fetch(`/api/sneaker/info/${styleId}`)
-    console.log(res)
-
-    //new fetch
-    // fetch("https://sneaks-api.azurewebsites.net/id/" + styleId + '/prices', {
-    //       headers: myHeaders,
-    //     })
-    //     .then(response => {
-    //         console.log(response);
-    //         dispatch(setSneaker(response.data));
-
-    //     });
+    console.log(res.data)
     dispatch(setSneaker(res.data.product));
 
     return res;
