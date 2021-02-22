@@ -68,7 +68,7 @@ router.get('/search/:sneaker', asyncHandler(async(req,res)=>{
             thumbnail: searched[i].thumbnail
         })
     }
-    return  res.json({products: searchedResults})
+    // return  res.json({products: searchedResults})
 }))
 
 router.get('/info/:styleID', asyncHandler(async(req,res)=>{
