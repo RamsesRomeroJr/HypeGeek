@@ -13,7 +13,7 @@ const Slider = styled.section`
 
 const Image = styled.img`
     /* width: 100px; */
-    height:300px;
+    height:175px;
     border-radius:10px;
 `
 

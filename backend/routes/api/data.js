@@ -8,8 +8,16 @@ const router = express.Router();
 router.get('/grab/:styleID', asyncHandler(async(req,res)=>{
     const styleId = req.params.styleID;
 
-    const storedData = StoreData.findAll({where: {styleId: styleId}})
-
+    const storedData = await StoreData.findOne({where: {styleId: styleId}})
+    // console.log(storedData.shoeName)
+    // res.json({
+    //     lowestPrice: {
+    //         stockX:storedData.stockxLow,
+    //         goat: storedData.goatLow,
+    //         flightClub: storedData.flightClubLow,
+    //         stadiumGoods : storedData.stadiumGoodsLow
+    //     }
+    // })
     res.json(storedData)
 }))
 
