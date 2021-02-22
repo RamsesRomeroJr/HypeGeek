@@ -36,7 +36,7 @@ const SearchResults = () =>{
         <div>
             <ShoesContainer>
                 {!results && <h4>Loading...</h4>}
-                {! results.length && <h4>No Shoes Found</h4>}
+                {/* {! results.length && <h4>No Shoes Found</h4>} */}
                 {results && results.map(sneaker =>{
                     return <Shoe key={sneaker._id} sneaker={sneaker}/>
                 })}
