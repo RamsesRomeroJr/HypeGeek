@@ -28,7 +28,7 @@ export const getSneakerInfo = (styleId) => async(dispatch) => {
     //Old fetch to back end library
     const res = await fetch(`/api/sneaker/info/${styleId}`)
     console.log(res.data)
-    dispatch(setSneaker(res.data.product));
+    dispatch(setSneaker(res.data.products));
 
     return res;
 }
