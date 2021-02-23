@@ -10,13 +10,44 @@ const { User, StoreData, FavShoe, HomeData, SneakerInfo } = require('../../db/mo
 const router = express.Router();
 
 router.get('/home', asyncHandler(async(req,res) =>{
-    await sneaks.getMostPopular((err, products)=>{
+    const HomeDataArray = [];
+
+    await sneaks.getMostPopular( async(err, products)=>{
+        for(const shoe of products){
+
+            let currStyleId = shoe.styleID
+            let data = await HomeData.findOne({where: {styleID: currStyleId}})
+            if(data === null){
+                let {
+                    styleID,
+                    shoeName,
+                    thumbnail
+                } = shoe
+                let {
+                    stockX,
+                    flightClub,
+                    goat,
+                    stadiumGoods
+                } = shoe.lowestResellPrice
+
+                await HomeData.create({
+                    styleID,
+                    shoeName,
+                    thumbnail,
+                    stockXLow:stockX,
+                    flightClubLow:flightClub,
+                    goatLow:goat,
+                    stadiumGoodsLow:stadiumGoods
+                })
+            }
+
+
+        }
         return res.json({
             products
         })
     })
 
-    const HomeDataArray = [];
     const HomeDatas = await HomeData.findAll()
     for(let i=0; i < HomeDatas.length; i++){
         HomeDataArray.push({
