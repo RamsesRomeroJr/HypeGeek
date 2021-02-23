@@ -169,6 +169,32 @@ router.get('/info/:styleID', asyncHandler(async(req,res)=>{
                 linkImage4:images[3],
             })
         }
+        else if( data !== null){
+            await SneakerInfo.update(
+                {
+                styleID,
+                shoeName,
+                thumbnail,
+                retailPrice,
+                releaseDate,
+                colorway,
+                description,
+                stockXLow: stockX,
+                goatLow: goat,
+                stadiumGoodsLow: stadiumGoods,
+                flightClubLow: flightClub,
+                stockXLink: resellLinks.stockX,
+                goatLink: resellLinks.goat,
+                stadiumGoodsLink:resellLinks.stadiumGoods,
+                flightClubLink:resellLinks.flightClub,
+                linkImage1:images[0],
+                linkImage2:images[1],
+                linkImage3:images[2],
+                linkImage4:images[3],
+            },
+            {where:{styleID: styleID}}
+            )
+        }
 
 
         let numsPrice = []
