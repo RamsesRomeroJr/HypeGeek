@@ -125,17 +125,77 @@ router.get('/info/:styleID', asyncHandler(async(req,res)=>{
     // console.log( JSON.parse(resss.body))
 
     await sneaks.getProductPrices(`${styleId}`, async (err, products)=>{
-        // here figure out how to save info into StoreData
+        // grabbing all needed info for backup data and graph
         const {
             styleID,
             shoeName,
+            thumbnail,
+            retailPrice,
+            releaseDate,
+            colorway,
+            description
         } = products
+        const resellLinks = products.resellLinks
+        const images = products.imageLinks
         let {
             stockX,
             goat,
             stadiumGoods,
             flightClub
         } = products.lowestResellPrice
+
+        //creating or updating back up data for sneaker info
+        let data = await SneakerInfo.findOne({where:{styleID: styleID}})
+        if(data === null){
+            await SneakerInfo.create({
+                styleID,
+                shoeName,
+                thumbnail,
+                retailPrice,
+                releaseDate,
+                colorway,
+                description,
+                stockXLow: stockX,
+                goatLow: goat,
+                stadiumGoodsLow: stadiumGoods,
+                flightClubLow: flightClub,
+                stockXLink: resellLinks.stockX,
+                goatLink: resellLinks.goat,
+                stadiumGoodsLink:resellLinks.stadiumGoods,
+                flightClubLink:resellLinks.flightClub,
+                linkImage1:images[0],
+                linkImage2:images[1],
+                linkImage3:images[2],
+                linkImage4:images[3],
+            })
+        }
+        else if( data !== null || images[1] ){
+            await SneakerInfo.update(
+                {
+                styleID,
+                shoeName,
+                thumbnail,
+                retailPrice,
+                releaseDate,
+                colorway,
+                description,
+                stockXLow: stockX,
+                goatLow: goat,
+                stadiumGoodsLow: stadiumGoods,
+                flightClubLow: flightClub,
+                stockXLink: resellLinks.stockX,
+                goatLink: resellLinks.goat,
+                stadiumGoodsLink:resellLinks.stadiumGoods,
+                flightClubLink:resellLinks.flightClub,
+                linkImage1:images[0],
+                linkImage2:images[1],
+                linkImage3:images[2],
+                linkImage4:images[3],
+            },
+            {where:{styleID: styleID}}
+            )
+        }
+
 
         let numsPrice = []
         // Checks if if not undfined to get lowest value
