@@ -17,18 +17,18 @@ router.get('/home', asyncHandler(async(req,res) =>{
 
             let currStyleId = shoe.styleID
             let data = await HomeData.findOne({where: {styleID: currStyleId}})
+            let {
+                styleID,
+                shoeName,
+                thumbnail
+            } = shoe
+            let {
+                stockX,
+                flightClub,
+                goat,
+                stadiumGoods
+            } = shoe.lowestResellPrice
             if(data === null){
-                let {
-                    styleID,
-                    shoeName,
-                    thumbnail
-                } = shoe
-                let {
-                    stockX,
-                    flightClub,
-                    goat,
-                    stadiumGoods
-                } = shoe.lowestResellPrice
 
                 await HomeData.create({
                     styleID,
@@ -39,7 +39,23 @@ router.get('/home', asyncHandler(async(req,res) =>{
                     goatLow:goat,
                     stadiumGoodsLow:stadiumGoods
                 })
+                continue
             }
+            else{
+                await HomeData.update(
+                    {
+                        styleID,
+                        shoeName,
+                        thumbnail,
+                        stockXLow:stockX,
+                        flightClubLow:flightClub,
+                        goatLow:goat,
+                        stadiumGoodsLow:stadiumGoods
+                    },
+                    {where: {styleID: currStyleId}}
+                )
+            }
+
 
 
         }
