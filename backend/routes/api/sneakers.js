@@ -169,7 +169,7 @@ router.get('/info/:styleID', asyncHandler(async(req,res)=>{
                 linkImage4:images[3],
             })
         }
-        else if( data !== null){
+        else if( data !== null || images[1] ){
             await SneakerInfo.update(
                 {
                 styleID,
