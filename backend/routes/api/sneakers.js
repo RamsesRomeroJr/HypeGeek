@@ -10,13 +10,60 @@ const { User, StoreData, FavShoe, HomeData, SneakerInfo } = require('../../db/mo
 const router = express.Router();
 
 router.get('/home', asyncHandler(async(req,res) =>{
-    await sneaks.getMostPopular((err, products)=>{
+    const HomeDataArray = [];
+
+    await sneaks.getMostPopular( async(err, products)=>{
+        for(const shoe of products){
+
+            let currStyleId = shoe.styleID
+            let data = await HomeData.findOne({where: {styleID: currStyleId}})
+            let {
+                styleID,
+                shoeName,
+                thumbnail
+            } = shoe
+            let {
+                stockX,
+                flightClub,
+                goat,
+                stadiumGoods
+            } = shoe.lowestResellPrice
+            if(data === null){
+
+                await HomeData.create({
+                    styleID,
+                    shoeName,
+                    thumbnail,
+                    stockXLow:stockX,
+                    flightClubLow:flightClub,
+                    goatLow:goat,
+                    stadiumGoodsLow:stadiumGoods
+                })
+                continue
+            }
+            else{
+                await HomeData.update(
+                    {
+                        styleID,
+                        shoeName,
+                        thumbnail,
+                        stockXLow:stockX,
+                        flightClubLow:flightClub,
+                        goatLow:goat,
+                        stadiumGoodsLow:stadiumGoods
+                    },
+                    {where: {styleID: currStyleId}}
+                )
+            }
+
+
+
+        }
         return res.json({
             products
         })
     })
 
-    const HomeDataArray = [];
     const HomeDatas = await HomeData.findAll()
     for(let i=0; i < HomeDatas.length; i++){
         HomeDataArray.push({
@@ -83,13 +130,43 @@ router.get('/info/:styleID', asyncHandler(async(req,res)=>{
             styleID,
             shoeName,
         } = products
-        const {
+        let {
             stockX,
             goat,
             stadiumGoods,
             flightClub
         } = products.lowestResellPrice
-        let lowestPrice = Math.min(stockX,goat,stadiumGoods,flightClub)
+
+        let numsPrice = []
+        // Checks if if not undfined to get lowest value
+        if(stockX !== undefined){
+            numsPrice.push(stockX)
+        }
+        if(goat !== undefined){
+            numsPrice.push(goat)
+        }
+        if(flightClub !== undefined){
+            numsPrice.push(flightClub)
+        }
+        if(stadiumGoods !== undefined){
+            numsPrice.push(stadiumGoods)
+        }
+
+        //if undefined turns to null so it can be stored in database for graph
+        if(stockX === undefined){
+            stockX = null
+        }
+        if(goat === undefined){
+            goat = null
+        }
+        if(flightClub === undefined){
+            flightClub = null
+        }
+        if(stadiumGoods === undefined){
+            stadiumGoods = null
+        }
+        let lowestPrice = Math.min(...numsPrice)
+        console.log(lowestPrice)
 
         await StoreData.create({styleId,
             shoeName,
