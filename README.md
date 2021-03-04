@@ -60,6 +60,7 @@ Through HypeGeek sneaker heads can find the cheapest price on a particular size 
         <li><a href="#installation">Installation</a></li>
       </ul>
     </li>
+    <li><a href="#wireframe">Wireframe</a></li>
     <li><a href="#usage">Usage</a></li>
     <li><a href="#roadmap">Roadmap</a></li>
     <li><a href="#contact">Contact</a></li>
@@ -112,6 +113,13 @@ To get started follow the following steps
    npm install
    ```
 
+## Wireframe
+
+### Wireframe that started the layout idea during planning 
+
+<img src="https://github.com/RamsesRomeroJr/HypeGeek/blob/main/frontend/public/HypeGeek-WireFrame-Splash.jpg?raw=true" />
+<img src="https://github.com/RamsesRomeroJr/HypeGeek/blob/main/frontend/public/HypeGeek-WireFrame-Home.jpg?raw=true" />
+<img src="https://github.com/RamsesRomeroJr/HypeGeek/blob/main/frontend/public/HypeGeek-WireFrame-info.jpg?raw=true" />
 
 
 <!-- USAGE EXAMPLES -->
@@ -136,6 +144,9 @@ To get started follow the following steps
 
 - Being able to favorite and unfavorite shoes
 <img src="https://raw.githubusercontent.com/RamsesRomeroJr/HypeGeek/main/Snippets/HypeGeek-Favoriting.gif" />
+
+- More Info Tab (Retail Price, Price Change, Release date, etc)
+<img src="https://github.com/RamsesRomeroJr/HypeGeek/blob/main/frontend/public/HypeGeek-MoreInfo.gif?raw=true" />
 
 <!-- ROADMAP -->
 ## Roadmap
