@@ -28,6 +28,7 @@ const LoginButton = styled.button`
 const Tabs = styled.div`
   display:flex;
   flex-direction: row;
+
 `
 
 const Doc = styled.a`
