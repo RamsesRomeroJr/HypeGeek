@@ -51,6 +51,13 @@ const SneakerInfoContainer = styled.div`
 
 const InfoContainer = styled.div`
     margin-top:30px;
+
+    @media (max-width: 400px){
+        align-self:center;
+        justify-self:center;
+        margin-top:15px;
+        margin-bottom:15px;
+    }
 `
 
 

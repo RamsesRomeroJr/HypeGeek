@@ -20,7 +20,20 @@ const SneakerName = styled.h3`
     font-size: 30px;
 
     @media (max-width: 400px){
+        display:flex;
         font-size:16px;
+        align-content:center;
+        justify-content:center;
+    }
+`
+
+const FavDiv = styled.div`
+    width:100%;
+    display:flex;
+
+    @media (max-width:400px){
+        align-content:center;
+        justify-content:center;
     }
 `
 
@@ -97,7 +110,9 @@ function Sneaker({sneakerInfo}){
             <SneakerName>
                 {sneakerName}
             </SneakerName>
-            <FavoriteComp sneakerInfo={sneakerInfo}/>
+            <FavDiv>
+                <FavoriteComp sneakerInfo={sneakerInfo}/>
+            </FavDiv>
             {!images.length && <Image src={sneakerInfo.thumbnail} />}
             <ImageSlider images={images} sneakerInfo={sneakerInfo} />
         </SneakerContainer>
