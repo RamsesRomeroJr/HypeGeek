@@ -24,8 +24,20 @@ const ChartContainer = styled.div`
     border:solid 0.5px lightgrey;
     box-shadow: 0 1px 5px 0px rgba(0,0,0,0.6);
     background-color: white;
-`
 
+    @media (max-width:400px){
+        display:flex;
+        flex-direction:column;
+    }
+`
+const LineCharContainer = styled.article`
+    margin-right:1px;
+    display:unset;
+
+    @media (max-width:400px){
+        display:none;
+    }
+`
 const SneakerInfoContainer = styled.div`
     box-sizing:border-box;
     display: grid;
@@ -57,6 +69,18 @@ const InfoContainer = styled.div`
         justify-self:center;
         margin-top:15px;
         margin-bottom:15px;
+    }
+`
+
+const TableName = styled.h3`
+    display:none;
+
+    @media (max-width:400px){
+        display:unset;
+        font-family: 'Staatliches', cursive;
+        font-weight:600;
+        align-self:center;
+        justify-self:center;
     }
 `
 
@@ -94,7 +118,10 @@ function SneakerInfo(){
             {!sneakerInfo && <h4>Loading Graph...</h4>}
             {sneakerInfo && (
             <ChartContainer>
-                <LineChart style={{height:'auto', width:'1000px'}}/>
+                <LineCharContainer>
+                    <LineChart />
+                </LineCharContainer>
+                <TableName>Lowest Price: Change Over Time</TableName>
                 <DataTable />
             </ChartContainer>
             )}

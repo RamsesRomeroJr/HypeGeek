@@ -21,7 +21,7 @@ const SneakerName = styled.h3`
 
     @media (max-width: 400px){
         display:flex;
-        font-size:16px;
+        font-size:18px;
         align-content:center;
         justify-content:center;
     }
@@ -48,6 +48,11 @@ const Image = styled.img`
     /* width: 100px; */
     height:300px;
     border-radius:10px;
+
+    @media (max-width: 400px){
+        height:150px;
+        padding-left:55px;
+    }
 `
 
 function Sneaker({sneakerInfo}){

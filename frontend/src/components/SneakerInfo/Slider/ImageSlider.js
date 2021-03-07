@@ -22,7 +22,7 @@ const Image = styled.img`
     border-radius:10px;
 
     @media (max-width: 400px){
-        height:175px;
+        height:170px;
     }
 `
 
