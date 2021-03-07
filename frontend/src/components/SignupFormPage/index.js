@@ -56,6 +56,7 @@ const ImageContainer = styled.div`
     width: 400px;
     height: 250px;
     padding-left:100px;
+    display:none;
   }
 `
 

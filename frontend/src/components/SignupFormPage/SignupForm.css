@@ -20,6 +20,7 @@
     border-radius:2px;
     margin-left: 115px;
     margin-bottom: 125px;
+
 }
 
 @keyframes shadowFloat {
@@ -52,3 +53,9 @@
 	}
 }
 /* Code Pen for shadowing float(a bit of editing) https://codepen.io/MarioDesigns/pen/woJgeo */
+
+@media (max-width:400px){
+	.formContainer{
+		margin:100px 0px 0px 0px;
+	}
+}
