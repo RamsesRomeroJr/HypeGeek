@@ -9,6 +9,7 @@ import {saveData} from '../../store/data'
 
 const SneakerContainer = styled.div`
     width: 100%;
+
 `
 
 const SneakerName = styled.h3`
@@ -17,6 +18,10 @@ const SneakerName = styled.h3`
     font-family: 'Staatliches', cursive;
     font-weight:600;
     font-size: 30px;
+
+    @media (max-width: 400px){
+        font-size:16px;
+    }
 `
 
 const SneakerImages = styled.img`

@@ -7,6 +7,7 @@
     z-index:10;
     cursor: pointer;
     user-select: none;
+
 }
 .left-arrow{
     position:absolute;
@@ -36,4 +37,13 @@
     opacity: 1;
     transition-duration: 1s;
     transform:scale(1.08) ;
+}
+
+@media (max-width:400px){
+    .right-arrow{
+        top: 35%;
+    }
+    .left-arrow{
+        top: 35%;
+    }
 }

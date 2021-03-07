@@ -9,6 +9,10 @@ const Slider = styled.section`
     display:flex;
     justify-content:center;
     align-items:center;
+
+    @media (max-width:400px){
+        height: 25vh;
+    }
 `
 
 const Image = styled.img`
@@ -16,6 +20,10 @@ const Image = styled.img`
     /* height:175px; */
     height:300px;
     border-radius:10px;
+
+    @media (max-width: 400px){
+        height:175px;
+    }
 `
 
 const ImageSlider = ({images, sneakerInfo}) => {

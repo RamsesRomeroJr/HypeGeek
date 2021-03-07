@@ -42,6 +42,11 @@ const SneakerInfoContainer = styled.div`
     box-shadow: 0 1px 5px 0px rgba(0,0,0,0.6);
     background-color: white;
     overflow:hidden;
+
+    @media (max-width:400px){
+        display:flex;
+        flex-direction:column;
+    }
 `
 
 const InfoContainer = styled.div`
