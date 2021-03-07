@@ -1,12 +1,13 @@
 import React from 'react';
 import {useSelector} from 'react-redux';
-import {Line} from 'react-chartjs-2'
+import {Line, defaults} from 'react-chartjs-2'
 import styled from 'styled-components'
 
+defaults.global.maintainAspectRatio = false
 
 const LineGraphContainer = styled.div`
     width: 100%;
-    overflow-x: scroll;
+    /* overflow-x: scroll; */
 `
 
 const LineChart = () => {
@@ -83,19 +84,19 @@ const LineChart = () => {
                 ]
             }}
             height={450}
-            width={900}
-            options={
-                {
-                maintainAspectRatio:false
-            },
-            {
-                scales:{
-                    xAxes: [{
+            // width={900}
+        //     options={
+        //         {
+        //         maintainAspectRatio:false
+        //     },
+        //     {
+        //         scales:{
+        //             xAxes: [{
 
-                    }]
-                }
-            }
-        }
+        //             }]
+        //         }
+        //     }
+        // }
             />
         </LineGraphContainer>
     )

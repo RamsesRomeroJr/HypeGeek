@@ -74,3 +74,23 @@
 }
 
 /* neon animation inspo: https://codepen.io/GeorgePark/pen/MrjbEr */
+
+@media (max-width: 400px){
+  .logo{
+    height: 40px;
+    align-self: center;
+    justify-self: center;
+    margin-top:32px;
+  }
+
+  .searchBar{
+    margin-right: 0px;
+    width: 130px;
+  }
+
+  .NavBar{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+}

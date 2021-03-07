@@ -1,5 +1,5 @@
 .tableContainer{
-    height: 350px;
+    height: 450px;
 }
 
 .tableContainer::-webkit-scrollbar{
@@ -16,4 +16,10 @@
 .tableContainer::-webkit-scrollbar-thumb:hover{
     background-color: rgba(0,128,0,0.7);
     border-radius: 9px;
+}
+
+@media (max-width:430px){
+    .tableContainer{
+
+    }
 }

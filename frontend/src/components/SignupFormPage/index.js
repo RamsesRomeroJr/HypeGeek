@@ -26,6 +26,12 @@ const Image = styled.img`
   transform:translateY(0px);
   animation: float 6s ease-in-out infinite;
 
+  @media (max-width: 400px){
+    width: 400px;
+    height: 250px;
+    /* padding-left:100px; */
+  }
+
 `
 
 const ImageShadow = styled.div`
@@ -35,9 +41,23 @@ const ImageShadow = styled.div`
   margin-left:250px;
   transform:translateY(0px);
   animation: shadowFloat 6s ease-in-out infinite;
+
+  @media (max-width: 400px){
+    width: 200px;
+    height: 15px;
+    margin-left:120px;
+    /* padding-left:100px; */
+  }
 `
 const ImageContainer = styled.div`
   padding:0;
+
+  @media (max-width: 400px){
+    width: 400px;
+    height: 250px;
+    padding-left:100px;
+    display:none;
+  }
 `
 
 const SignUpButton = styled.button`
@@ -79,6 +99,10 @@ const Page = styled.div`
   display:flex;
   align-items:center;
   justify-content:space-around;
+
+  @media (max-width:430px){
+    flex-direction:column;
+  }
 `
 function SignupFormPage() {
   const dispatch = useDispatch();

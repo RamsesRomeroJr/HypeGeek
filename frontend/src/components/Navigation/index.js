@@ -28,6 +28,14 @@ const LoginButton = styled.button`
 const Tabs = styled.div`
   display:flex;
   flex-direction: row;
+
+  @media (max-width:430px){
+    padding-right:0px;
+    padding-left:0px;
+    display:none;
+
+  }
+
 `
 
 const Doc = styled.a`
@@ -42,6 +50,13 @@ const Doc = styled.a`
   &:hover{
     color:green;
     font-size:22px;
+  }
+
+  @media (max-width:430px){
+    padding-right:0px;
+    padding-left:0px;
+    display:none;
+
   }
 `
 
