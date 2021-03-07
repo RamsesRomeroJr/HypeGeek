@@ -29,6 +29,12 @@ const Info = styled.div`
     list-style-type: none;
     font-family: 'Staatliches', cursive;
     font-weight:3;
+
+    @media (max-width:400px){
+        position: relative;
+        width:300px;
+        z-index:11;
+    }
 `
 
 function Description({sneakerInfo}){

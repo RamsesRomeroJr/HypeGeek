@@ -42,6 +42,7 @@
 @media (max-width:400px){
     .right-arrow{
         top: 35%;
+        z-index: 1;
     }
     .left-arrow{
         top: 35%;
