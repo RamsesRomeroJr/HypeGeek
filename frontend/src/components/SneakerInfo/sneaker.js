@@ -34,6 +34,7 @@ const FavDiv = styled.div`
     @media (max-width:400px){
         align-content:center;
         justify-content:center;
+        margin-bottom:5px;
     }
 `
 

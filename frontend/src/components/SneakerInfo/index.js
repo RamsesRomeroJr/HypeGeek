@@ -32,7 +32,7 @@ const ChartContainer = styled.div`
 `
 const LineCharContainer = styled.article`
     margin-right:1px;
-    display:unset;
+    display:contents;
 
     @media (max-width:400px){
         display:none;
