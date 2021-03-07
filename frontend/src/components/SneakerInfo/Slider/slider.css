@@ -39,7 +39,7 @@
     transform:scale(1.08) ;
 }
 
-@media (max-width:400px){
+@media (max-width:430px){
     .right-arrow{
         top: 35%;
         z-index: 1;

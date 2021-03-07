@@ -24,7 +24,7 @@ const Input = styled.input`
         box-shadow: 0 2px 5px 0px rgba(0,0,0,0.6);
     }
 
-    @media (max-width:400px){
+    @media (max-width:430px){
         width:125px;
         height:40px;
         font-size:16px;
@@ -35,7 +35,7 @@ const SearchBox = styled.div`
     width:310px;
     height: 40px;
 
-    @media (max-width:400px){
+    @media (max-width:430px){
         width:125px;
         height:40px;
         font-size:16px;

@@ -100,7 +100,7 @@ const Page = styled.div`
   align-items:center;
   justify-content:space-around;
 
-  @media (max-width:400px){
+  @media (max-width:430px){
     flex-direction:column;
   }
 `

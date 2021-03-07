@@ -30,7 +30,7 @@ const Info = styled.div`
     font-family: 'Staatliches', cursive;
     font-weight:3;
 
-    @media (max-width:400px){
+    @media (max-width:430px){
         position: relative;
         width:300px;
         z-index:11;

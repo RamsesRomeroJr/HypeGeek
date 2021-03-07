@@ -31,7 +31,7 @@ const FavDiv = styled.div`
     width:100%;
     display:flex;
 
-    @media (max-width:400px){
+    @media (max-width:430px){
         align-content:center;
         justify-content:center;
         margin-bottom:5px;
