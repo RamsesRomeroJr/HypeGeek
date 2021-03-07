@@ -21,7 +21,7 @@ const Image = styled.img`
     height:300px;
     border-radius:10px;
 
-    @media (max-width: 400px){
+    @media (max-width: 430px){
         height:170px;
     }
 `
