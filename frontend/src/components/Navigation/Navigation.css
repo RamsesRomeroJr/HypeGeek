@@ -85,6 +85,12 @@
 
   .searchBar{
     margin-right: 0px;
-    width: 150px;
+    width: 130px;
+  }
+
+  .NavBar{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
   }
 }

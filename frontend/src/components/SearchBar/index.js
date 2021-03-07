@@ -35,6 +35,11 @@ const SearchBox = styled.div`
     width:310px;
     height: 40px;
 
+    @media (max-width:400px){
+        width:125px;
+        height:40px;
+        font-size:16px;
+    }
 
 `
 
