@@ -19,7 +19,7 @@ const SneakerName = styled.h3`
     font-weight:600;
     font-size: 30px;
 
-    @media (max-width: 400px){
+    @media (max-width: 430px){
         display:flex;
         font-size:18px;
         align-content:center;
@@ -50,7 +50,7 @@ const Image = styled.img`
     height:300px;
     border-radius:10px;
 
-    @media (max-width: 400px){
+    @media (max-width: 430px){
         height:150px;
         padding-left:55px;
     }

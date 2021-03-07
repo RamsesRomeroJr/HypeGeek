@@ -64,7 +64,7 @@ const SneakerInfoContainer = styled.div`
 const InfoContainer = styled.div`
     margin-top:30px;
 
-    @media (max-width: 400px){
+    @media (max-width: 430px){
         align-self:center;
         justify-self:center;
         margin-top:15px;

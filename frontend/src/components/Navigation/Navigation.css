@@ -75,7 +75,7 @@
 
 /* neon animation inspo: https://codepen.io/GeorgePark/pen/MrjbEr */
 
-@media (max-width: 400px){
+@media (max-width: 430px){
   .logo{
     height: 40px;
     align-self: center;

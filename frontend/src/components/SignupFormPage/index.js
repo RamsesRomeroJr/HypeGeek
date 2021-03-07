@@ -26,7 +26,7 @@ const Image = styled.img`
   transform:translateY(0px);
   animation: float 6s ease-in-out infinite;
 
-  @media (max-width: 400px){
+  @media (max-width: 430px){
     width: 400px;
     height: 250px;
     /* padding-left:100px; */
@@ -42,7 +42,7 @@ const ImageShadow = styled.div`
   transform:translateY(0px);
   animation: shadowFloat 6s ease-in-out infinite;
 
-  @media (max-width: 400px){
+  @media (max-width: 430px){
     width: 200px;
     height: 15px;
     margin-left:120px;
@@ -52,7 +52,7 @@ const ImageShadow = styled.div`
 const ImageContainer = styled.div`
   padding:0;
 
-  @media (max-width: 400px){
+  @media (max-width: 430px){
     width: 400px;
     height: 250px;
     padding-left:100px;
