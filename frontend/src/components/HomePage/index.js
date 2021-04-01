@@ -18,6 +18,14 @@ const ShoesContainer = styled.div`
     width: 94%;
     padding-top: 15px;
     padding-bottom: 50px;
+
+    @media (max-width: 430px){
+        display: grid;
+        grid-template-columns: repeat(2 ,175px);
+        grid-auto-rows: auto;
+        width: 150px;
+        height: 100px;
+    }
 `
 
 const ContainerTitle = styled.h2`
