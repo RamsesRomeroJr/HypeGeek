@@ -8,6 +8,7 @@ import Pricing from './pricing.js'
 import LineChart from '../LineChart/index.js'
 import DataTable from '../LineChart/dataTable.js'
 import Description from '../Description/index.js'
+import Loading from './loading.gif'
 
 const ChartContainer = styled.div`
     box-sizing:border-box;
@@ -84,6 +85,16 @@ const TableName = styled.h3`
     }
 `
 
+const LoadingImage = styled.img`
+    height: 400px;
+    align-self:center;
+    justify-self: center;
+
+    @media (max-width:430px){
+        height: 175px;
+    }
+`
+
 
 function SneakerInfo(){
 
@@ -105,7 +116,7 @@ function SneakerInfo(){
 
     return (
         <div style={{marginTop:'25px'}}>
-            {!sneakerInfo && <h4>Loading Sneaker...</h4>}
+            {!sneakerInfo && <LoadingImage src={Loading} />}
             {sneakerInfo && (
             <SneakerInfoContainer>
                 <Sneaker sneakerInfo={sneakerInfo}/>
@@ -115,7 +126,7 @@ function SneakerInfo(){
                 <Pricing sneakerInfo={sneakerInfo}/>
             </SneakerInfoContainer>
             )}
-            {!sneakerInfo && <h4>Loading Graph...</h4>}
+            {!sneakerInfo && <h4></h4>}
             {sneakerInfo && (
             <ChartContainer>
                 <LineCharContainer>

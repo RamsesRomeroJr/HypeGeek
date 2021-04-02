@@ -4,6 +4,7 @@ import styled from 'styled-components';
 import { useHistory } from "react-router-dom";
 import Shoe from '../HomePage/shoe.js'
 import {resetSneakerInfo} from "../../store/sneaker"
+import Loading from './loading.gif'
 
 const ShoesContainer = styled.div`
     box-sizing:border-box;
@@ -26,6 +27,16 @@ const ShoesContainer = styled.div`
     }
 `
 
+const LoadingImage = styled.img`
+    height: 500px;
+    align-self:center;
+    justify-self: center;
+
+    @media (max-width:430px){
+        height: 175px;
+    }
+`
+
 
 const SearchResults = () =>{
     const results = useSelector((state)=> state.searchResults.results);
@@ -43,7 +54,7 @@ const SearchResults = () =>{
     return (
         <div>
             <ShoesContainer>
-                {!results && <h4>Loading...</h4>}
+                {!results && <LoadingImage src={Loading} />}
                 {/* {! results.length && <h4>No Shoes Found</h4>} */}
                 {results && results.map(sneaker =>{
                     return <Shoe key={sneaker._id} sneaker={sneaker}/>
