@@ -10,12 +10,24 @@ import Navigation from "./components/Navigation";
 import SearchResults from "./components/SearchResults"
 import UserFavorites from "./components/UserFavorites"
 
+import ReactGA from 'react-ga';
+import { useLocation } from 'react-router-dom';
+
+function usePageView(){
+  let location = useLocation();
+  React.useEffect(()=>{
+    ReactGA.pageview(location.pathname);
+  },[location])
+}
+
 function App() {
   const dispatch = useDispatch();
   const [isLoaded, setIsLoaded] = useState(false);
   useEffect(() => {
     dispatch(sessionActions.restoreUser()).then(() => setIsLoaded(true));
   }, [dispatch]);
+
+  usePageView();
 
   return (
     <div >

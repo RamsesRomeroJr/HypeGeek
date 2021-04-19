@@ -12,6 +12,8 @@ import configureStore from './store';
 import { restoreCSRF, fetch } from './store/csrf';
 import * as sessionActions from './store/session';
 
+import ReactGa, {pageview} from 'react-ga'
+
 const store = configureStore();
 
 if (process.env.NODE_ENV !== "production") {
@@ -22,6 +24,8 @@ if (process.env.NODE_ENV !== "production") {
   window.sessionActions = sessionActions;
 }
 
+
+
 // const Carrot = () => (
 //   <div style={{ color: "orange", fontSize: "100px" }}>
 //     <i className="fas fa-carrot"></i>
@@ -29,6 +33,7 @@ if (process.env.NODE_ENV !== "production") {
 // );
 
 function Root() {
+  initializeGA();
   return (
     <ModalProvider>
       <Provider store={store}>
@@ -47,3 +52,8 @@ ReactDOM.render(
   </React.StrictMode>,
   document.getElementById('root')
 );
+
+function initializeGA(){
+  ReactGa.initialize('UA-194964543-1');
+  // pageview(location.pathname + location.hash);
+}
